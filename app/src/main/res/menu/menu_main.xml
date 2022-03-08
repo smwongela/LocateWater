@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group
+        android:id="@+id/menu_top"
+        >
+        <item android:id="@+id/home"
+            android:icon="@drawable/ic_baseline_home_24"
+            android:title="Home" />
+        <item android:id="@+id/sourceAdd"
+            android:icon="@drawable/ic_baseline_video_call_24"
+            android:title="Add a Source" />
+        <item android:id="@+id/goMap"
+        android:icon="@drawable/ic_baseline_pin_drop_24"
+        android:title="View Pinned Sources" />
+        <item android:id="@+id/viewSources"
+            android:icon="@drawable/ic_baseline_list_alt_24"
+            android:title="Source List" />
+    </group>
+
+    <group
+        android:id="@+id/menu_bottom"
+        android:checkableBehavior="none">
+        <item android:id="@+id/contact"
+            android:icon="@drawable/ic_baseline_call_24"
+            android:title="Contact Us" />
+        <item android:id="@+id/settings"
+            android:icon="@drawable/ic_service"
+            android:title="Settings" />
+        <item android:id="@+id/share"
+            android:icon="@drawable/ic_baseline_share"
+            android:title="Share" />
+    </group>
+</menu>

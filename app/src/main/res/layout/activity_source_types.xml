@@ -1,0 +1,383 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    tools:context=".activities.MainActivity"
+    android:background="@drawable/watershed"
+    android:layout_height="match_parent">
+
+    <androidx.appcompat.widget.Toolbar
+        app:layout_constraintTop_toTopOf="parent"
+        android:id="@+id/tool_bar"
+        android:layout_width="match_parent"
+        android:layout_height="75dp"
+        android:layout_alignParentTop="true"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:logo="@mipmap/ic_app_logo"
+        android:background="@color/colorPrimaryDark"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+
+        app:titleTextAppearance="@style/app_title" />
+
+    <View
+        android:id="@+id/view"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_width="match_parent"
+        android:layout_height="20dp"/>
+    <ScrollView
+        app:layout_constraintTop_toBottomOf="@id/tool_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cards"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:background="@drawable/bgcard"
+            android:paddingBottom="30dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/view">
+            <TextView
+                android:id="@+id/heading"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="@font/kanit_bold"
+                android:text="Select Source Type "
+                android:layout_margin="10dp"
+                android:textColor="@color/navy_blue"
+                android:textSize="20sp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="@id/cards"
+
+                />
+
+            <TextView
+                android:id="@+id/description"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="5dp"
+                android:fontFamily="@font/quicksand_book"
+                android:text="Please Select a Source to fill data"
+                android:textColor="#3A3A3A"
+                android:textSize="12sp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/heading"
+
+                />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                app:layout_constraintTop_toBottomOf="@id/description"
+                android:weightSum="10">
+
+            <GridLayout
+                android:id="@+id/mainGrid"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="12"
+                android:alignmentMode="alignMargins"
+                android:columnCount="2"
+                android:columnOrderPreserved="false"
+                android:padding="14dp"
+                android:rowCount="3">
+
+
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardViewRiver"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:clickable="true"
+                card_view:cardElevation="4dp"
+                card_view:cardCornerRadius="3dp"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="30dp"
+
+
+                >
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:id="@+id/project_image"
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"
+                        android:adjustViewBounds="true"
+                        android:paddingBottom="5dp"
+                        android:src="@drawable/britannica"
+                        android:contentDescription="todo" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/project_image"
+                        android:layout_marginTop="4dp"
+                        android:background="@color/colorPrimary"
+                        android:gravity="center_horizontal"
+                        android:padding="10dp"
+                        android:text="River"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                        android:textColor="@color/navy_blue"
+                        android:textStyle="bold"
+                        android:theme="@style/ThemeOverlay.AppCompat.Light" />
+
+
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardViewLake"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                card_view:cardElevation="4dp"
+                card_view:cardCornerRadius="3dp"
+
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginEnd="8dp"
+
+
+                >
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:id="@+id/Blog_Feed"
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"
+                        android:adjustViewBounds="true"
+
+                        android:paddingBottom="5dp"
+                        android:src="@drawable/lake"
+                        android:contentDescription="todo" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/Blog_Feed"
+                        android:layout_marginTop="4dp"
+                        android:background="@color/colorPrimaryDark"
+                        android:gravity="center_horizontal"
+                        android:padding="10dp"
+                        android:text="Lake"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                        android:textColor="#ffff00"
+                        android:textStyle="bold"
+                        android:theme="@style/ThemeOverlay.AppCompat.Light" />
+
+
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardViewDam"
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
+
+                    card_view:cardElevation="4dp"
+                    card_view:cardCornerRadius="3dp"
+                    android:layout_marginStart="12dp"
+                    android:clickable="true"
+                    android:layout_marginTop="20dp"
+
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/cardViewRiver">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <ImageView
+                            android:id="@+id/podCast_image"
+                            android:layout_width="match_parent"
+                            android:layout_height="100dp"
+                            android:adjustViewBounds="true"
+                            android:paddingBottom="5dp"
+                            android:src="@drawable/thiba"
+                            android:contentDescription="todo" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/podCast_image"
+                            android:layout_marginTop="4dp"
+                            android:background="@color/colorPrimaryDark"
+                            android:gravity="center_horizontal"
+                            android:padding="10dp"
+                            android:text="Dam"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                            android:textColor="#ffff00"
+                            android:textStyle="bold"
+                            android:theme="@style/ThemeOverlay.AppCompat.Light" />
+
+
+                    </RelativeLayout>
+                </androidx.cardview.widget.CardView>
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardViewSpring"
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
+
+                    card_view:cardElevation="4dp"
+                    card_view:cardCornerRadius="3dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="8dp"
+                    android:clickable="true"
+                    android:layout_marginTop="20dp"
+
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/cardViewList">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <ImageView
+                            android:id="@+id/spring_image"
+                            android:layout_width="match_parent"
+                            android:layout_height="100dp"
+                            android:adjustViewBounds="true"
+                            android:paddingBottom="5dp"
+                            android:src="@drawable/springs"
+                            android:contentDescription="todo" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/spring_image"
+                            android:layout_marginTop="4dp"
+                            android:background="@color/colorPrimaryDark"
+                            android:gravity="center_horizontal"
+                            android:padding="10dp"
+                            android:text="Spring"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                            android:textColor="@color/navy_blue"
+                            android:textStyle="bold"
+                            android:theme="@style/ThemeOverlay.AppCompat.Light" />
+
+
+                    </RelativeLayout>
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                android:id="@+id/cardViewTaps"
+                android:layout_width="150dp"
+                android:clickable="true"
+                android:layout_height="150dp"
+                card_view:cardElevation="4dp"
+                card_view:cardCornerRadius="3dp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/cardViewDam"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="20dp"
+                               android:focusable="true">
+
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:id="@+id/tap_Image"
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"
+                        android:adjustViewBounds="true"
+
+                        android:contentDescription="todo"
+
+                        android:paddingBottom="5dp"
+                        android:src="@drawable/taps" />
+
+                    <TextView
+                        android:id="@+id/borehole_title"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/tap_Image"
+                        android:layout_marginTop="4dp"
+                        android:background="@color/colorPrimary"
+                        android:gravity="center_horizontal"
+                        android:padding="10dp"
+                        android:text="Tap"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                        android:textColor="@color/navy_blue"
+                        android:textStyle="bold"
+                        android:theme="@style/ThemeOverlay.AppCompat.Light" />
+
+
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+
+
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardViewBorehole"
+                android:layout_width="150dp"
+                android:clickable="true"
+                android:layout_height="150dp"
+                card_view:cardElevation="4dp"
+                card_view:cardCornerRadius="3dp"
+
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="8dp"
+
+                app:layout_constraintLeft_toRightOf="@id/cardViewList"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/cardViewLake"
+                android:focusable="true">
+
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:id="@+id/borehole_Image"
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"
+                        android:adjustViewBounds="true"
+
+                        android:contentDescription="todo"
+
+                        android:paddingBottom="5dp"
+                        android:src="@drawable/samburu" />
+
+                    <TextView
+                        android:id="@+id/event_title"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/borehole_Image"
+                        android:layout_marginTop="4dp"
+                        android:background="@color/colorPrimaryDark"
+                        android:gravity="center_horizontal"
+                        android:padding="10dp"
+                        android:text="Borehole"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                        android:textColor="#ffff00"
+                        android:textStyle="bold"
+                        android:theme="@style/ThemeOverlay.AppCompat.Light" />
+
+
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+            </GridLayout>
+            </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>
+

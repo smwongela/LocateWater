@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:id="@+id/display"
+    android:orientation="vertical"
+    android:background="@drawable/watershed"
+    android:layout_height="match_parent"
+    tools:context=".activities.RegisterActivity"
+    >
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/tool_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:logo="@mipmap/ic_app_logo"
+        android:background="@color/colorPrimaryDark"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+
+        app:titleTextAppearance="@style/app_title" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+
+        android:paddingStart="10dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:paddingBottom="10dp"
+        android:orientation="vertical"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_centerVertical="true"
+        android:background="@drawable/bgcard"
+        android:layout_centerHorizontal="true">
+
+
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="@font/kanit_bold"
+            android:text="Create New User "
+            android:textColor="@color/navy_blue"
+            android:textSize="25dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="5dp"
+            android:fontFamily="@font/quicksand_book"
+            android:text="Please Complete the Details Below"
+            android:textColor="#3A3A3A"
+            android:textSize="12sp" />
+
+        <EditText
+            android:background="@drawable/bg_editext"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            android:textColor="@color/navy_blue"
+            android:textColorHint="@color/navy_blue"
+            android:paddingStart="18dp"
+            android:paddingEnd="18dp"
+            android:drawablePadding="10dp"
+            android:drawableStart="@drawable/accountbox"
+            android:id="@+id/usernameField"
+            android:padding="16dp"
+            android:fontFamily="@font/quicksand_book"
+            android:inputType="text"
+            android:maxLines="1"
+            android:singleLine="true"
+            android:hint="Name of User"
+
+
+            />
+        <EditText
+
+            android:background="@drawable/bg_editext"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            android:textColor="@color/navy_blue"
+            android:textColorHint="@color/navy_blue"
+            android:paddingStart="18dp"
+            android:paddingEnd="18dp"
+            android:drawablePadding="10dp"
+            android:id="@+id/emailField"
+            android:padding="16dp"
+            android:inputType="textEmailAddress"
+            android:fontFamily="@font/quicksand_book"
+            android:hint="User Company Email"
+            android:maxLines="1"
+            android:singleLine="true"
+
+            android:drawableStart="@drawable/email"
+            />
+
+        <EditText
+
+            android:background="@drawable/bg_editext"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            android:textColor="@color/navy_blue"
+            android:textColorHint="@color/navy_blue"
+            android:paddingStart="18dp"
+            android:paddingEnd="18dp"
+            android:drawablePadding="10dp"
+            android:padding="16dp"
+
+
+            android:id="@+id/passwordField"
+
+            android:inputType="textPassword"
+            android:drawableStart="@drawable/password"
+
+            android:fontFamily="@font/quicksand_book"
+
+
+            android:hint="User Password"
+
+            />
+
+        <Button
+            android:id="@+id/registerBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="@string/register"
+            android:textStyle="bold"
+            android:clickable="true"
+            android:textColor="@color/white"
+            android:background="@drawable/layout_special"
+            android:layout_gravity="center"
+            android:focusable="true" />
+
+        <TextView
+            android:id="@+id/loginTxtView"
+            android:layout_gravity="center"
+            android:layout_margin="16dp"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="@color/navy_blue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/already_registered_login"/>
+
+    </LinearLayout>
+
+
+</RelativeLayout><?xml version="1.0" encoding="utf-8"?>
+
+

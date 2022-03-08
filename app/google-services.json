@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "381006734985",
+    "project_id": "maji-5ee5f",
+    "storage_bucket": "maji-5ee5f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:381006734985:android:bb0b7d7de9b0ae8b148858",
+        "android_client_info": {
+          "package_name": "com.boreholes.locatewater"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "381006734985-56pepm8l4r4knnovhf1nr9o3ro6q9oqb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDMxVoZUCAUMgFZnZ5niTAuSTxCbeMWDws"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "381006734985-56pepm8l4r4knnovhf1nr9o3ro6q9oqb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

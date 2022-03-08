@@ -1,0 +1,100 @@
+<resources>
+    <string name="app_name">MaJi</string>
+    <string name="username">username</string>
+    <string name="email">email</string>
+    <string name="password">password</string>
+    <string name="register">Register</string>
+    <string name="already_registered_login">already registered ? Login</string>
+    <string name="create_profile">Create Profile</string>
+    <string name="set_profile_photo">Set Profile Photo</string>
+    <string name="first_name">First Name</string>
+    <string name="surname">Surname</string>
+    <string name="gender">Gender</string>
+    <string name="organisation">Organisation</string>
+    <string name="country">Country</string>
+    <string name="designation">Designation</string>
+    <string name="submit">Submit</string>
+    <string name="geo_not_available" translatable="false">Geo coding service is not available</string>
+    <string name="no_address_found" translatable="false">No address found</string>
+    <string name="address_text">"Near: %1$s \n At: %2$tr"</string>
+
+    <string name="loading">Loading.....</string>
+    <string name="invalid_lat_long_used">Invalid lat log</string>
+    <string-array name="counties">
+        <item>Garissa</item>
+        <item>Isiolo</item>
+        <item>Mandera</item>
+        <item>Marsabit</item>
+        <item>Samburu</item>
+        <item>Wajir</item>
+
+    </string-array>
+    <string-array name="garrisaSubcounties">
+        <item>Sedan</item>
+        <item>SUV</item>
+        <item>Station Wagon</item>
+        <item>Lorry</item>
+        <item>Bus</item>
+
+    </string-array>
+    <string-array name="isioloSubcounties">
+        <item>Sedan</item>
+        <item>SUV</item>
+        <item>Station Wagon</item>
+        <item>Lorry</item>
+        <item>Bus</item>
+
+    </string-array>
+
+
+    <string-array name="manderaSubcounties">
+        <item>Sedan</item>
+        <item>SUV</item>
+        <item>Station Wagon</item>
+        <item>Lorry</item>
+        <item>Bus</item>
+
+    </string-array>
+    <string-array name="marsabitSubcounties">
+        <item>Sedan</item>
+        <item>SUV</item>
+        <item>Station Wagon</item>
+        <item>Lorry</item>
+        <item>Bus</item>
+    </string-array>
+    <string-array name="wajirSubcounties">
+        <item>Wajir East</item>
+        <item>Wajir West</item>
+        <item>Wajir South</item>
+        <item>Wajir North</item>
+        <item>Buna</item>
+        <item>Tarbaj</item>
+        <item>Eldas</item>
+        <item>Habaswein</item>
+
+    </string-array>
+
+
+    <string name="ongoing">Ongoing</string>
+    <string name="could_not_login">Couldn\'t login, User not found</string>
+    <string name="complete_all_fields">Complete all fields</string>
+    <string name="processing">PROCESSING....</string>
+    <string name="not_registered">User not registered!</string>
+    <string name="please_login">please login</string>
+    <string name="enter_email">Enter Email</string>
+    <string name="enter_password">Enter Password</string>
+    <string name="login">Login</string>
+    <string name="no_account_sign_up">No Account ? Sign up</string>
+    <string name="forgot_your_password">Forgot your password?</string>
+    <string name="todo">todo</string>
+    <string name="national_id_number">National ID Number</string>
+    <string name="phone_number">Phone Number</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="tab_label_1">Rivers</string>
+    <string name="tab_label_2">Dams</string>
+    <string name="tab_label_3">Lakes</string>
+    <string name="tab_label_4">Springs</string>
+    <string name="tab_label_5">Borehole</string>
+
+</resources>

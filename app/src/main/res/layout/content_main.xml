@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/turqwall"
+    android:orientation="vertical"
+    tools:context=".activities.MainActivity">
+
+
+    <View
+        android:id="@+id/view"
+        android:layout_width="match_parent"
+        android:layout_height="100dp" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:weightSum="10">
+
+        <GridLayout
+            android:id="@+id/mainGrid"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="8"
+            android:alignmentMode="alignMargins"
+            android:columnCount="2"
+            android:columnOrderPreserved="false"
+            android:padding="14dp"
+            android:rowCount="2">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardViewSource"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="30dp"
+                android:clickable="true"
+                card_view:cardCornerRadius="3dp"
+                card_view:cardElevation="4dp"
+
+
+                >
+
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:id="@+id/project_image"
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"
+                        android:adjustViewBounds="true"
+                        android:contentDescription="todo
+"
+                        android:paddingBottom="5dp"
+                        android:src="@drawable/chaniafalls" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/project_image"
+                        android:layout_marginTop="4dp"
+                        android:background="@color/colorPrimary"
+                        android:gravity="center_horizontal"
+                        android:padding="10dp"
+                        android:text="Add a Source"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                        android:textColor="@color/navy_blue"
+                        android:textStyle="bold"
+                        android:theme="@style/ThemeOverlay.AppCompat.Light" />
+
+
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardViewMap"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_gravity="end"
+                android:layout_marginTop="30dp"
+              android:layout_marginStart="16dp"
+                android:layout_marginEnd="8dp"
+                 card_view:cardCornerRadius="3dp"
+                card_view:cardElevation="4dp"
+
+                >
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:id="@+id/Blog_Feed"
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"
+
+                        android:adjustViewBounds="true"
+                        android:contentDescription="todo"
+                        android:paddingBottom="5dp"
+                        android:src="@drawable/google_pin" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/Blog_Feed"
+                        android:layout_marginTop="4dp"
+                        android:background="@color/colorPrimaryDark"
+                        android:gravity="center_horizontal"
+                        android:padding="10dp"
+                        android:text="View On Map"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                        android:textColor="#ffff00"
+                        android:textStyle="bold"
+                        android:theme="@style/ThemeOverlay.AppCompat.Light" />
+
+
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+
+
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardViewList"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="20dp"
+                android:clickable="true"
+                card_view:cardCornerRadius="3dp"
+                card_view:cardElevation="4dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:id="@+id/podCast_image"
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"
+                        android:adjustViewBounds="true"
+                        android:contentDescription="todo"
+                        android:paddingBottom="5dp"
+                        android:src="@drawable/watershed" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/podCast_image"
+                        android:layout_marginTop="4dp"
+                        android:background="@color/colorPrimaryDark"
+                        android:gravity="center_horizontal"
+                        android:padding="10dp"
+                        android:text="Source List"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                        android:textColor="#ffff00"
+                        android:textStyle="bold"
+                        android:theme="@style/ThemeOverlay.AppCompat.Light" />
+
+
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardViewReports"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+
+                android:layout_marginTop="20dp"
+                android:layout_gravity="end"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="16dp"
+                android:clickable="true"
+                android:focusable="true"
+                card_view:cardCornerRadius="3dp"
+                card_view:cardElevation="4dp">
+
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:id="@+id/event_Image"
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"
+                        android:adjustViewBounds="true"
+
+                        android:contentDescription="todo"
+
+                        android:paddingBottom="5dp"
+                        android:src="@drawable/borehole" />
+
+                    <TextView
+                        android:id="@+id/event_title"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/event_Image"
+                        android:layout_marginTop="4dp"
+                        android:background="@color/colorPrimary"
+                        android:gravity="center_horizontal"
+                        android:padding="10dp"
+                        android:text="Reports"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                        android:textColor="@color/navy_blue"
+                        android:textStyle="bold"
+                        android:theme="@style/ThemeOverlay.AppCompat.Light" />
+
+
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+
+
+        </GridLayout>
+    </LinearLayout>
+
+
+</LinearLayout>

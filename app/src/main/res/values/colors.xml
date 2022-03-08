@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+   <color name="holo_blue_dark">#FF0099CC</color>
+    <color name="colorPrimary">#80C5DE</color>
+    <color name="colorPrimaryDark">#48ACD0</color>
+    <color name="colorAccent">#00FFFF</color>
+
+    <color name="dark_toolbar">#544C5E</color>
+    <color name="background">#E8E8F4</color>
+    <color name="about_title">#353535</color>
+    <color name="bright_product">#558A66</color>
+    <color name="bright_service">#BA014B</color>
+    <color name="bright_event">#018C8C</color>
+    <color name="bright_tab">#A6697C</color>
+    <color name="grey_dark">#FADDDD</color>
+    <color name="css_gray">#808080</color>
+
+
+    <color name="text">#666666</color>
+    <color name="navy_blue">#213240</color>
+    <color name="coral">#fa4b51</color>
+    <color name="white_light">#c8c8c8</color>
+    <color name="text_detail">#666666</color>
+    <color name="gray">#414141</color>
+    <color name="light_gray">#616161</color>
+    <color name="line_color">#EBEBEB</color>
+    <color name="color_transparent">#00000000</color>
+    <color name="dark_transparent">#77505050</color>
+
+
+
+    <color name="color_toolbar">#00CED1</color>
+
+    <color name="greenDark">#007500</color>
+    <color name="green1">#00A300</color>
+    <color name="greenLight">#8AFF8A</color>
+    <color name="limeGreen">   #88CA5E</color>
+    <color name="Green">  #1D741B</color>
+    <color name="yellow_green">#D3C02F</color>
+    <color name="forest_green">#09323B</color>
+
+    <color name="grey_10">#e6e6e6</color>
+
+
+    <!--Material color list from https://material.io/guidelines/style/color.html-->
+
+    <color name="green_50">#E8F5E9</color>
+
+    <color name="cyan_800">#22FF0C</color>
+    <color name="yellow_color">#ffff00</color>
+    <color name="teal900">#FF018786</color>
+
+
+</resources>
