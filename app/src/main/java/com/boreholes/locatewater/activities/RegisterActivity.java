@@ -39,6 +39,7 @@ public class RegisterActivity extends AppCompatActivity {
         //inflate the tool bar
         Toolbar toolbar = findViewById(R.id.tool_bar);
         setSupportActionBar(toolbar);
+        setToolbarTitle("");
 
         //Initialize the views
         TextView loginTxtView = findViewById(R.id.loginTxtView);
@@ -158,5 +159,10 @@ public class RegisterActivity extends AppCompatActivity {
 
         }
 
+    }
+    public void setToolbarTitle(String Title) {
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setTitle(Title);
+        }
     }
 }

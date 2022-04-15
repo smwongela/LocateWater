@@ -32,6 +32,7 @@ private FirebaseAuth mAuth;
         //inflate the tool bar
         Toolbar toolbar = findViewById(R.id.tool_bar);
         setSupportActionBar(toolbar);
+        setToolbarTitle("");
         //create an instance of the tab layout
         TabLayout tabLayout = findViewById(R.id.tab_layout);
         tabLayout.addTab(tabLayout.newTab().setText(R.string.tab_label_1));
@@ -93,5 +94,10 @@ private FirebaseAuth mAuth;
             startActivity(mainIntent);
         }
         return super.onOptionsItemSelected(item);
+    }
+    public void setToolbarTitle(String Title) {
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setTitle(Title);
+        }
     }
 }

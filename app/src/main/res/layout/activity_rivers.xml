@@ -103,7 +103,7 @@
                         android:fontFamily="@font/kanit_bold"
                         android:text="Step One: Capture River Details "
                         android:textColor="@color/navy_blue"
-                        android:textSize="25dp" />
+                        android:textSize="15sp" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -137,15 +137,15 @@
                             android:theme="@style/EditText.White" />
 
                         <com.google.android.material.textfield.TextInputLayout
-                            android:layout_width="match_parent"
+                            android:layout_width="200dp"
                             android:layout_height="wrap_content"
                             android:theme="@style/EditText.White.Hint">
 
                             <com.google.android.material.textfield.TextInputEditText
                                 android:id="@+id/villageName"
                                 android:layout_width="match_parent"
-
                                 android:layout_height="wrap_content"
+                                android:gravity="center"
                                 android:inputType="textCapSentences"
                                 android:maxLength="50"
                                 android:maxLines="1"
@@ -156,118 +156,92 @@
                         </com.google.android.material.textfield.TextInputLayout>
                     </LinearLayout>
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="1dp"
-                            android:layout_weight="2"
-
-                            android:text="county:"
-                            android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
-                            android:textColor="@android:color/holo_blue_dark"
-                            android:textSize="20sp"
-                            android:theme="@style/EditText.White" />
-
-                        <AutoCompleteTextView
-                            android:id="@+id/countyAutoComplete"
-                            android:layout_width="200dp"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="12dp"
-                            android:text="" />
-
-                    </LinearLayout>
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+
                         android:orientation="horizontal">
 
-                        <TextView
-                            android:layout_width="wrap_content"
+                        <ImageView
+                            android:layout_width="80dp"
                             android:layout_height="50dp"
-                            android:layout_marginTop="1dp"
-                            android:layout_weight="2"
-
-                            android:text="SubCounty:"
-                            android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
-                            android:textColor="@android:color/holo_blue_dark"
-                            android:textSize="20sp"
-                            android:theme="@style/EditText.White" />
-
-                        <AutoCompleteTextView
-                            android:id="@+id/subCountyAutoComplete"
-                            android:layout_width="200dp"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="12dp"
-                            android:text="" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
+                            android:layout_gravity="center"
+                            android:src="@drawable/riversamburu" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="1dp"
-                            android:layout_weight="2"
-
-                            android:text="Ward:"
+                            android:layout_gravity="top"
+                            android:layout_marginStart="10dp"
+                            android:text="Fresh:"
                             android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
                             android:textColor="@android:color/holo_blue_dark"
                             android:textSize="20sp"
                             android:theme="@style/EditText.White" />
 
-                        <AutoCompleteTextView
-                            android:id="@+id/wardAutoComplete"
-                            android:layout_width="200dp"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="12dp"
-                            android:text="" />
-                    </LinearLayout>
-
-
-
                         <com.google.android.material.textfield.TextInputLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:theme="@style/EditText.White.Hint">
-
-                            <com.google.android.material.textfield.TextInputEditText
-                                android:id="@+id/river_total"
-                                android:layout_width="match_parent"
-
-                                android:layout_height="wrap_content"
-                                android:hint="Village Source Total"
-                                android:inputType="number"
-                                android:maxLength="50"
-                                android:maxLines="1"
-                                android:singleLine="true"
-                                android:theme="@style/EditText.White"
-
-                                />
-
-                        </com.google.android.material.textfield.TextInputLayout>
-
-
-
-                        <com.google.android.material.textfield.TextInputLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
+                            android:layout_marginStart="50dp"
                             android:theme="@style/EditText.White.Hint">
 
                             <com.google.android.material.textfield.TextInputEditText
                                 android:id="@+id/river_fresh"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
+                                android:layout_width="80dp"
+                                android:layout_height="50dp"
+                                android:background="@drawable/layoutsyle"
 
-                                android:hint=" Sources Fresh"
+                                android:gravity="center"
+                                android:inputType="number"
+                                android:maxLength="50"
+                                android:maxLines="1"
+                                android:singleLine="true"
+                                android:theme="@style/EditText.White" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="80dp"
+                            android:layout_height="50dp"
+                            android:layout_gravity="center"
+                            android:src="@drawable/britannica" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="1dp"
+                            android:layout_marginStart="10dp"
+                            android:text="Salty:"
+                            android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+                            android:textColor="@android:color/holo_blue_dark"
+                            android:textSize="20sp"
+                            android:theme="@style/EditText.White" />
+
+
+                        <com.google.android.material.textfield.TextInputLayout
+
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="58dp"
+                            android:theme="@style/EditText.White.Hint">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/river_salty"
+                                android:layout_width="80dp"
+                                android:layout_height="50dp"
+                                android:background="@drawable/layoutsyle"
+
+                                android:gravity="center"
                                 android:inputType="number"
                                 android:maxLength="50"
                                 android:maxLines="1"
@@ -276,29 +250,44 @@
                                 android:theme="@style/EditText.White" />
 
                         </com.google.android.material.textfield.TextInputLayout>
+                    </LinearLayout>
 
-
-
-
-                    <com.google.android.material.textfield.TextInputLayout
-
+                    <LinearLayout
+                        android:id="@+id/layout_total"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:theme="@style/EditText.White.Hint">
+                        android:background="@color/gray"
+                        android:orientation="horizontal"
+                        android:visibility="invisible">
 
-                        <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/river_salty"
-                            android:layout_width="match_parent"
+                        <TextView
+
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:hint="Sources Salty"
-                            android:inputType="number"
-                            android:maxLength="50"
-                            android:maxLines="1"
-                            android:singleLine="true"
+                            android:layout_marginTop="1dp"
 
+                            android:text="Total:     "
+                            android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+                            android:textColor="@android:color/holo_blue_dark"
+                            android:textSize="30sp"
                             android:theme="@style/EditText.White" />
 
-                    </com.google.android.material.textfield.TextInputLayout>
+                        <TextView
+                            android:id="@+id/source_total"
+                            android:layout_width="80dp"
+                            android:layout_height="50dp"
+                            android:layout_marginStart="85dp"
+                            android:layout_marginTop="10dp"
+                            android:gravity="center"
+                            android:text="20"
+                            android:textColor="@android:color/holo_blue_dark"
+                            android:textSize="30sp"
+
+
+                            />
+
+                    </LinearLayout>
+
 
 
                     <View

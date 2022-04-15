@@ -31,7 +31,8 @@ android {
 }
 
 dependencies {
-
+    def work_version = "2.7.1"
+    implementation "androidx.work:work-runtime:$work_version"
     implementation 'androidx.appcompat:appcompat:1.4.1'
     implementation "androidx.cardview:cardview:1.0.0"
 

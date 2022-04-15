@@ -15,7 +15,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
 public class SourceTypesActivity extends AppCompatActivity {
-CardView addRiver;
+CardView addRiver,addLake,addDam,addSpring, addTap,addBorehole;
     private FirebaseAuth mAuth;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +35,11 @@ CardView addRiver;
         }
 
         addRiver=findViewById(R.id.cardViewRiver);
+        addLake =findViewById(R.id.cardViewLake);
+        addDam=findViewById(R.id.cardViewDam);
+        addSpring =findViewById(R.id.cardViewSpring);
+        addTap =findViewById(R.id.cardViewTaps);
+        addBorehole =findViewById(R.id.cardViewBorehole);
         addRiver.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -46,7 +51,63 @@ CardView addRiver;
                 }
             }
         });
-    }
+
+      addLake.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            FirebaseUser currentUser = mAuth.getCurrentUser();
+            if (currentUser != null) {
+
+                Intent sourceType = new Intent(SourceTypesActivity.this, LakesActivity.class);
+                startActivity(sourceType);
+            }
+        }
+    });
+        addDam.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FirebaseUser currentUser = mAuth.getCurrentUser();
+                if (currentUser != null) {
+
+                    Intent sourceType = new Intent(SourceTypesActivity.this, DamsActivity.class);
+                    startActivity(sourceType);
+                }
+            }
+        });
+        addSpring.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FirebaseUser currentUser = mAuth.getCurrentUser();
+                if (currentUser != null) {
+
+                    Intent sourceType = new Intent(SourceTypesActivity.this, SpringsActivity.class);
+                    startActivity(sourceType);
+                }
+            }
+        });
+        addBorehole.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FirebaseUser currentUser = mAuth.getCurrentUser();
+                if (currentUser != null) {
+
+                    Intent sourceType = new Intent(SourceTypesActivity.this, BoreholesActivity.class);
+                    startActivity(sourceType);
+                }
+            }
+        });
+        addTap.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FirebaseUser currentUser = mAuth.getCurrentUser();
+                if (currentUser != null) {
+
+                    Intent sourceType = new Intent(SourceTypesActivity.this, TapsActivity.class);
+                    startActivity(sourceType);
+                }
+            }
+        });
+}
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.

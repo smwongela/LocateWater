@@ -10,7 +10,6 @@
     <uses-permission android:name="android.permission.CAMERA" />
 
     <application
-        android:name=".activities.FirebaseHandler"
         android:allowBackup="true"
         android:icon="@mipmap/ic_app_logo"
         android:label="@string/app_name"
@@ -18,13 +17,72 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".activities.TapsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.BoreholesActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.SpringsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.DamsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.StepTwoBoreholesActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.StepTwoTapsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.StepTwoSpringsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.StepTwoDamsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.StepTwoLakesActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.LakesActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.NationalActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.SubCountyActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.WardActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.MyWardReportActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.MySubCountyReportActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.MyNationalReportActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.StepThreeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.StepTwoRiversActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.MyCountyActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.CountyActivity"
+            android:exported="false" />
+        <activity
             android:name=".activities.VideoActivity"
             android:exported="false" />
 
         <meta-data
             android:name="com.google.android.gms.version"
-            android:value="@integer/google_play_services_version" />
-        <!--              The API key for Google Maps-based APIs. -->
+            android:value="@integer/google_play_services_version" /> <!-- The API key for Google Maps-based APIs. -->
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="${MAPS_API_KEY}" />

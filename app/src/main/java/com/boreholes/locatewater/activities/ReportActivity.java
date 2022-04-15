@@ -2,64 +2,106 @@ package com.boreholes.locatewater.activities;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.cardview.widget.CardView;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.widget.TextView;
+import android.view.View;
 
 import com.boreholes.locatewater.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
-
-import java.util.Map;
 
 
 public class ReportActivity extends AppCompatActivity {
-private TextView mTotal;
-private DatabaseReference mVillageCounts;
+
+    CardView nationalReport;
+    CardView countyReport;
+    CardView subCountyReport;
+    CardView wardReport;
     private FirebaseAuth mAuth;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_report);
-        mTotal= findViewById(R.id.textViewCount);
 
+        //inflate the tool bar
+        Toolbar toolbar = findViewById(R.id.tool_bar);
+        setSupportActionBar(toolbar);
+        setToolbarTitle("");
+        //Initialize the views
+       nationalReport= findViewById(R.id.cardViewNational);
+        countyReport = findViewById(R.id.cardViewCounty);
+        subCountyReport =findViewById(R.id.cardViewSubCounty);
+        wardReport=findViewById(R.id.cardViewWard);
         mAuth = FirebaseAuth.getInstance();
         FirebaseUser currentUser = mAuth.getCurrentUser();
         if (currentUser == null) {
 
-            Intent loginIntent = new Intent(ReportActivity.this, RegisterActivity.class);
+            Intent loginIntent = new Intent(ReportActivity.this, LoginActivity.class);
             loginIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(loginIntent);
         }
-
-        mVillageCounts = FirebaseDatabase.getInstance().getReference().child("Survey");
-        mVillageCounts.addValueEventListener(new ValueEventListener() {
+        nationalReport.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                int sum = 0;
+            public void onClick(View v) {
+                FirebaseUser currentUser = mAuth.getCurrentUser();
+                if (currentUser != null) {
 
-                for (DataSnapshot ds : snapshot.getChildren()){
-
-                    Map<String,Object> map;
-                    map = (Map<String, Object>) ds.getValue();
-                    Object sourceTotal = map.get("sourceTotals");
-                    int sValue = Integer.parseInt(String.valueOf(sourceTotal));
-                    sum += sValue;
-                    mTotal.setText(String.valueOf(sum));
-
+                    Intent national = new Intent(ReportActivity.this, MyNationalReportActivity.class);
+                    startActivity(national);
                 }
             }
+        });
 
+
+        countyReport.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onCancelled(@NonNull DatabaseError error) {
+            public void onClick(View v) {
+                FirebaseUser currentUser = mAuth.getCurrentUser();
+                if (currentUser != null) {
+
+                    Intent county= new Intent(ReportActivity.this, CountyActivity.class);
+                    startActivity(county);
+                }
+
 
             }
         });
+        subCountyReport.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FirebaseUser currentUser = mAuth.getCurrentUser();
+                if (currentUser != null) {
+
+                    Intent sub = new Intent(ReportActivity.this, SubCountyActivity.class);
+                    startActivity(sub);
+                }
+
+
+            }
+        });
+
+        wardReport.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FirebaseUser currentUser = mAuth.getCurrentUser();
+                if (currentUser != null) {
+
+                    Intent ward = new Intent(ReportActivity.this, WardActivity.class);
+                    startActivity(ward);
+                }
+
+
+            }
+        });
+
+    }
+    public void setToolbarTitle(String Title) {
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setTitle(Title);
+        }
     }
 }

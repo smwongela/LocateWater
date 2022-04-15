@@ -4,6 +4,8 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/Stanslaus Mwongela/AndroidStudioProjects/LocateWater/app/src/main/res/drawable-anydpi/Ic_close.xml" value="0.1005" />
+        <entry key="..\:/Users/Stanslaus Mwongela/AndroidStudioProjects/LocateWater/app/src/main/res/drawable/action_button_style.xml" value="0.1715" />
+        <entry key="..\:/Users/Stanslaus Mwongela/AndroidStudioProjects/LocateWater/app/src/main/res/drawable/bg_editext.xml" value="0.1715" />
         <entry key="..\:/Users/Stanslaus Mwongela/AndroidStudioProjects/LocateWater/app/src/main/res/drawable/button_2.xml" value="0.141" />
         <entry key="..\:/Users/Stanslaus Mwongela/AndroidStudioProjects/LocateWater/app/src/main/res/drawable/button_login_background.xml" value="0.141" />
         <entry key="..\:/Users/Stanslaus Mwongela/AndroidStudioProjects/LocateWater/app/src/main/res/drawable/button_login_skip_background.xml" value="0.141" />
@@ -11,21 +13,42 @@
         <entry key="..\:/Users/Stanslaus Mwongela/AndroidStudioProjects/LocateWater/app/src/main/res/drawable/layout_special.xml" value="0.1835" />
         <entry key="..\:/Users/Stanslaus Mwongela/AndroidStudioProjects/LocateWater/app/src/main/res/drawable/layout_style.xml" value="0.141" />
         <entry key="..\:/Users/Stanslaus Mwongela/AndroidStudioProjects/LocateWater/app/src/main/res/drawable/layoutsyle.xml" value="0.141" />
+        <entry key="..\:/Users/Stanslaus Mwongela/AndroidStudioProjects/LocateWater/app/src/main/res/drawable/my_vertical_progress_bar.xml" value="0.1715" />
+        <entry key="..\:/Users/Stanslaus Mwongela/AndroidStudioProjects/LocateWater/app/src/main/res/drawable/progress_bar_drawable.xml" value="0.1715" />
+        <entry key="..\:/Users/Stanslaus Mwongela/AndroidStudioProjects/LocateWater/app/src/main/res/drawable/source_card_item.xml" value="0.1715" />
+        <entry key="..\:/Users/Stanslaus Mwongela/AndroidStudioProjects/LocateWater/app/src/main/res/layout/activity_boreholes.xml" value="0.175" />
+        <entry key="..\:/Users/Stanslaus Mwongela/AndroidStudioProjects/LocateWater/app/src/main/res/layout/activity_county.xml" value="0.25" />
+        <entry key="..\:/Users/Stanslaus Mwongela/AndroidStudioProjects/LocateWater/app/src/main/res/layout/activity_dams.xml" value="0.175" />
+        <entry key="..\:/Users/Stanslaus Mwongela/AndroidStudioProjects/LocateWater/app/src/main/res/layout/activity_lakes.xml" value="0.22" />
         <entry key="..\:/Users/Stanslaus Mwongela/AndroidStudioProjects/LocateWater/app/src/main/res/layout/activity_login.xml" value="0.18" />
         <entry key="..\:/Users/Stanslaus Mwongela/AndroidStudioProjects/LocateWater/app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="..\:/Users/Stanslaus Mwongela/AndroidStudioProjects/LocateWater/app/src/main/res/layout/activity_map.xml" value="0.22" />
+        <entry key="..\:/Users/Stanslaus Mwongela/AndroidStudioProjects/LocateWater/app/src/main/res/layout/activity_my_county.xml" value="0.19557625145518046" />
+        <entry key="..\:/Users/Stanslaus Mwongela/AndroidStudioProjects/LocateWater/app/src/main/res/layout/activity_my_sub_county_report.xml" value="0.25" />
+        <entry key="..\:/Users/Stanslaus Mwongela/AndroidStudioProjects/LocateWater/app/src/main/res/layout/activity_my_ward_report.xml" value="0.175" />
         <entry key="..\:/Users/Stanslaus Mwongela/AndroidStudioProjects/LocateWater/app/src/main/res/layout/activity_register.xml" value="0.175" />
-        <entry key="..\:/Users/Stanslaus Mwongela/AndroidStudioProjects/LocateWater/app/src/main/res/layout/activity_report.xml" value="0.22" />
-        <entry key="..\:/Users/Stanslaus Mwongela/AndroidStudioProjects/LocateWater/app/src/main/res/layout/activity_rivers.xml" value="0.25" />
+        <entry key="..\:/Users/Stanslaus Mwongela/AndroidStudioProjects/LocateWater/app/src/main/res/layout/activity_report.xml" value="0.25" />
+        <entry key="..\:/Users/Stanslaus Mwongela/AndroidStudioProjects/LocateWater/app/src/main/res/layout/activity_rivers.xml" value="0.22" />
+        <entry key="..\:/Users/Stanslaus Mwongela/AndroidStudioProjects/LocateWater/app/src/main/res/layout/activity_single_county.xml" value="0.175" />
+        <entry key="..\:/Users/Stanslaus Mwongela/AndroidStudioProjects/LocateWater/app/src/main/res/layout/activity_single_county_report.xml" value="0.25" />
         <entry key="..\:/Users/Stanslaus Mwongela/AndroidStudioProjects/LocateWater/app/src/main/res/layout/activity_source_list.xml" value="0.25" />
         <entry key="..\:/Users/Stanslaus Mwongela/AndroidStudioProjects/LocateWater/app/src/main/res/layout/activity_source_types.xml" value="0.25" />
+        <entry key="..\:/Users/Stanslaus Mwongela/AndroidStudioProjects/LocateWater/app/src/main/res/layout/activity_springs.xml" value="0.175" />
+        <entry key="..\:/Users/Stanslaus Mwongela/AndroidStudioProjects/LocateWater/app/src/main/res/layout/activity_step_three.xml" value="0.25" />
+        <entry key="..\:/Users/Stanslaus Mwongela/AndroidStudioProjects/LocateWater/app/src/main/res/layout/activity_step_two.xml" value="0.33" />
+        <entry key="..\:/Users/Stanslaus Mwongela/AndroidStudioProjects/LocateWater/app/src/main/res/layout/activity_step_two_lakes.xml" value="0.175" />
+        <entry key="..\:/Users/Stanslaus Mwongela/AndroidStudioProjects/LocateWater/app/src/main/res/layout/activity_sub_county.xml" value="0.175" />
+        <entry key="..\:/Users/Stanslaus Mwongela/AndroidStudioProjects/LocateWater/app/src/main/res/layout/activity_taps.xml" value="0.175" />
         <entry key="..\:/Users/Stanslaus Mwongela/AndroidStudioProjects/LocateWater/app/src/main/res/layout/activity_video.xml" value="0.22" />
+        <entry key="..\:/Users/Stanslaus Mwongela/AndroidStudioProjects/LocateWater/app/src/main/res/layout/activity_ward.xml" value="0.22" />
         <entry key="..\:/Users/Stanslaus Mwongela/AndroidStudioProjects/LocateWater/app/src/main/res/layout/appbar_main.xml" value="0.33" />
         <entry key="..\:/Users/Stanslaus Mwongela/AndroidStudioProjects/LocateWater/app/src/main/res/layout/content_main.xml" value="0.25" />
+        <entry key="..\:/Users/Stanslaus Mwongela/AndroidStudioProjects/LocateWater/app/src/main/res/layout/county_card_item.xml" value="0.33" />
         <entry key="..\:/Users/Stanslaus Mwongela/AndroidStudioProjects/LocateWater/app/src/main/res/layout/fragment_boreholes.xml" value="0.175" />
         <entry key="..\:/Users/Stanslaus Mwongela/AndroidStudioProjects/LocateWater/app/src/main/res/layout/fragment_dams.xml" value="0.175" />
-        <entry key="..\:/Users/Stanslaus Mwongela/AndroidStudioProjects/LocateWater/app/src/main/res/layout/fragment_rivers.xml" value="0.175" />
+        <entry key="..\:/Users/Stanslaus Mwongela/AndroidStudioProjects/LocateWater/app/src/main/res/layout/fragment_rivers.xml" value="0.33" />
         <entry key="..\:/Users/Stanslaus Mwongela/AndroidStudioProjects/LocateWater/app/src/main/res/layout/fragment_springs.xml" value="0.175" />
+        <entry key="..\:/Users/Stanslaus Mwongela/AndroidStudioProjects/LocateWater/app/src/main/res/layout/source_card.xml" value="0.25" />
         <entry key="..\:/Users/Stanslaus Mwongela/AndroidStudioProjects/LocateWater/app/src/main/res/layout/source_card_item.xml" value="0.25" />
         <entry key="..\:/Users/Stanslaus Mwongela/AndroidStudioProjects/LocateWater/app/src/main/res/layout/test.xml" value="0.25" />
         <entry key="..\:/Users/Stanslaus Mwongela/AndroidStudioProjects/LocateWater/app/src/main/res/menu/menu_main.xml" value="0.175" />

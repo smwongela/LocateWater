@@ -85,12 +85,21 @@ public class VideoActivity extends AppCompatActivity {
 
     private String postId, videoTitle, videoCaption;
     String post_key = null;
+    String sourceType = null;
+    String village = null;
+    String sources =null;
+    String fresh= null;
+    String salty= null;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_video);
         post_key = getIntent().getExtras().getString("PostKey");
-
+        sourceType = getIntent().getExtras().getString("sourceType");
+        village =getIntent().getExtras().getString("Village");
+        sources = getIntent().getExtras().getString("Sources");
+        fresh = getIntent().getExtras().getString("Fresh");
+        salty = getIntent().getExtras().getString("Salty");
 
         /*----- UI Views -----*/
         closeBtn = findViewById(R.id.closeBtn);
@@ -208,8 +217,7 @@ public class VideoActivity extends AppCompatActivity {
                             public void onSuccess(Uri uri) {
                                 //Convert the uri to a string
                                 final String videoUrl = uri.toString();
-                                Toast.makeText(getApplicationContext(), "Video Uploaded Successfully!", Toast.LENGTH_SHORT).show();
-                                progressDialog.dismiss();
+
 
                                 //Call the push() method to publish the values of the video on the database reference
                                 //final DatabaseReference newPost = databaseRef.push();
@@ -220,26 +228,91 @@ public class VideoActivity extends AppCompatActivity {
                                   Then call the addValueEventListener() method so as to set the values
                                  */
 
-                                mDatabaseUsers.addValueEventListener(new ValueEventListener() {
+                                databaseRef.addValueEventListener(new ValueEventListener() {
                                     @Override
                                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                                         databaseRef.child("videoPostId").setValue(postId);
-                                        databaseRef.child("videoTitle").setValue(videoTitle);
-                                        databaseRef.child("videoCaption").setValue(videoCaption);
+                                        databaseRef.child(sourceType).child("videoTitle").setValue(videoTitle);
+                                        databaseRef.child(sourceType).child("videoCaption").setValue(videoCaption);
                                         databaseRef.child("videoUrl").setValue(videoUrl);
                                         databaseRef.child("videoTime").setValue(time);
-                                        databaseRef.child("videoDate").setValue(date);
+                                        databaseRef.child("videoDate").setValue(date)
 
-                                        //Get the profile photo and the display name of the person posting
-                                       // newPost.child("imageUri").setValue(dataSnapshot.child("imageUri").getValue());
-                                        databaseRef.child("uploadedBy").setValue(dataSnapshot.child("username").getValue())
+
                                                 .addOnCompleteListener(new OnCompleteListener<Void>() {
                                                     @Override
                                                     public void onComplete(@NonNull Task<Void> task) {
                                                         if(task.isSuccessful()){
+
+                                                            progressDialog.dismiss();
+                                                            Toast.makeText(VideoActivity.this, "Video Uploaded Successfully!", Toast.LENGTH_SHORT).show();
                                                             //Launch the HomePageActivity after posting
-                                                            startActivity(new Intent(VideoActivity.this, SourceTypesActivity.class));
-                                                            finish();
+                                                            if(sourceType.equalsIgnoreCase("Rivers")) {
+                                                                Intent next = new Intent(VideoActivity.this, StepTwoRiversActivity.class);
+                                                                next.putExtra("PostKey", post_key);
+                                                                next.putExtra("Village", village);
+                                                                next.putExtra("Sources",sources);
+                                                                next.putExtra("Fresh",fresh);
+                                                                next.putExtra("Salty",salty);
+                                                                next.putExtra("sourceType",sourceType);
+                                                                startActivity(next);
+                                                                finish();
+                                                            }
+                                                            if(sourceType.equalsIgnoreCase("Lakes")) {
+                                                                Intent next = new Intent(VideoActivity.this, StepTwoLakesActivity.class);
+                                                                next.putExtra("PostKey", post_key);
+                                                                next.putExtra("Village", village);
+                                                                next.putExtra("Sources",sources);
+                                                                next.putExtra("Fresh",fresh);
+                                                                next.putExtra("Salty",salty);
+                                                                next.putExtra("sourceType",sourceType);
+                                                                startActivity(next);
+                                                                finish();
+                                                            }
+                                                            if(sourceType.equalsIgnoreCase("Dams")) {
+                                                                Intent next = new Intent(VideoActivity.this, StepTwoDamsActivity.class);
+                                                                next.putExtra("PostKey", post_key);
+                                                                next.putExtra("Village", village);
+                                                                next.putExtra("Sources",sources);
+                                                                next.putExtra("Fresh",fresh);
+                                                                next.putExtra("Salty",salty);
+                                                                next.putExtra("sourceType",sourceType);
+                                                                startActivity(next);
+                                                                finish();
+                                                            }
+                                                            if(sourceType.equalsIgnoreCase("Springs")) {
+                                                                Intent next = new Intent(VideoActivity.this, StepTwoSpringsActivity.class);
+                                                                next.putExtra("PostKey", post_key);
+                                                                next.putExtra("Village", village);
+                                                                next.putExtra("Sources",sources);
+                                                                next.putExtra("Fresh",fresh);
+                                                                next.putExtra("Salty",salty);
+                                                                next.putExtra("sourceType",sourceType);
+                                                                startActivity(next);
+                                                                finish();
+                                                            }
+                                                            if(sourceType.equalsIgnoreCase("Boreholes")) {
+                                                                Intent next = new Intent(VideoActivity.this, StepTwoBoreholesActivity.class);
+                                                                next.putExtra("PostKey", post_key);
+                                                                next.putExtra("Village", village);
+                                                                next.putExtra("Sources",sources);
+                                                                next.putExtra("Fresh",fresh);
+                                                                next.putExtra("Salty",salty);
+                                                                next.putExtra("sourceType",sourceType);
+                                                                startActivity(next);
+                                                                finish();
+                                                            }
+                                                            if(sourceType.equalsIgnoreCase("Taps")) {
+                                                                Intent next = new Intent(VideoActivity.this, StepTwoTapsActivity.class);
+                                                                next.putExtra("PostKey", post_key);
+                                                                next.putExtra("Village", village);
+                                                                next.putExtra("Sources",sources);
+                                                                next.putExtra("Fresh",fresh);
+                                                                next.putExtra("Salty",salty);
+                                                                next.putExtra("sourceType",sourceType);
+                                                                startActivity(next);
+                                                                finish();
+                                                            }
                                                         }
                                                     }
                                                 });

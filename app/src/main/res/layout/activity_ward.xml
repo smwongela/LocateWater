@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    tools:context=".activities.WardActivity">
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/tool_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="2dp"
+        android:background="@drawable/statusbar_gradient_bg"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
+
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginStart="@dimen/fab_margin"
+            android:padding="3dp"
+            android:src="@mipmap/ic_app_logo"
+            app:civ_border_color="#FFF"
+            app:civ_border_width="2dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/amsterdam"
+            android:paddingStart="12dp"
+            android:paddingLeft="@dimen/activity_horizontal_margin"
+            android:text="@string/app_name"
+            android:textColor="#FFB700"
+            android:textSize="15sp" />
+
+    </androidx.appcompat.widget.Toolbar>
+    <TextView
+        android:id="@+id/text_intro_proj"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
+        android:text="Wards"
+        android:layout_below="@id/tool_bar"
+        android:textColor="@color/navy_blue"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/text_browse_projects"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/text_intro_proj"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="4dp"
+        android:text="Select Ward to View"
+        android:textColor="@color/css_gray"
+        android:textSize="16sp"
+        android:textStyle="italic" />
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_below="@id/text_browse_projects"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+</RelativeLayout>

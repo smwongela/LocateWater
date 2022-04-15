@@ -96,5 +96,8 @@
     <string name="tab_label_3">Lakes</string>
     <string name="tab_label_4">Springs</string>
     <string name="tab_label_5">Borehole</string>
+    <string name="warning">Please Switch on your Gps</string>
+    <string name="settings">Settings</string>
+    <string name="package_scheme">Packge Scheme</string>
 
 </resources>

@@ -39,8 +39,10 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         //inflate the tool bar
+        //inflate the tool bar
         Toolbar toolbar = findViewById(R.id.tool_bar);
         setSupportActionBar(toolbar);
+        setToolbarTitle("");
         //Initialize the views
 
         Button loginBtn = findViewById(R.id.loginBtn);
@@ -142,5 +144,10 @@ public class LoginActivity extends AppCompatActivity {
         finish();
         super.onBackPressed();  // optional depending on your needs
 
+    }
+    public void setToolbarTitle(String Title) {
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setTitle(Title);
+        }
     }
 }

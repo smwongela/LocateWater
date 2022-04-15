@@ -1,0 +1,1137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:id="@+id/display"
+    android:orientation="vertical"
+    android:background="@drawable/watershed"
+    android:layout_height="match_parent"
+    tools:context=".activities.MyWardReportActivity"
+    >
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/tool_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="2dp"
+        android:background="@drawable/statusbar_gradient_bg"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
+
+
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginStart="@dimen/fab_margin"
+            android:padding="3dp"
+            android:src="@mipmap/ic_app_logo"
+            app:civ_border_color="#FFF"
+            app:civ_border_width="2dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/amsterdam"
+            android:paddingStart="12dp"
+            android:paddingLeft="@dimen/activity_horizontal_margin"
+            android:text="@string/app_name"
+            android:textColor="#FFB700"
+            android:textSize="15sp" />
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tool_bar">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+
+            android:layout_centerInParent="true"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/bgcard"
+            android:orientation="vertical"
+            android:paddingStart="10dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingBottom="10dp">
+
+
+            <TextView
+                android:id="@+id/textViewWard"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="@font/kanit_bold"
+                android:text="Wapi "
+                android:textColor="@color/navy_blue"
+                android:textSize="25sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="5dp"
+                android:fontFamily="@font/quicksand_book"
+                android:text="Ward Report"
+                android:textColor="#3A3A3A"
+                android:textSize="15sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+
+                android:orientation="horizontal">
+
+                <TextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/quicksand_book"
+                    android:padding="16dp"
+                    android:paddingStart="18dp"
+                    android:paddingEnd="6dp"
+                    android:singleLine="true"
+                    android:text="Target Visualization"
+                    android:textColor="@color/navy_blue"
+                    android:textStyle="bold" />
+
+                <ProgressBar
+                    android:id="@+id/progress_bar_target"
+                    style="@android:style/Widget.ProgressBar.Horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="24dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:indeterminate="false"
+                    android:max="600"
+                    android:progress="0"
+                    android:progressDrawable="@drawable/progress_bar_drawable"
+                    android:visibility="visible" />
+
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/bg_editext"
+                android:orientation="horizontal">
+
+                <TextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/quicksand_book"
+                    android:padding="16dp"
+                    android:paddingStart="18dp"
+                    android:paddingEnd="6dp"
+                    android:singleLine="true"
+                    android:text="Total Sources:"
+                    android:textColor="@color/navy_blue"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/total_sources"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/quicksand_book"
+                    android:padding="16dp"
+                    android:paddingStart="18dp"
+                    android:paddingEnd="5dp"
+                    android:singleLine="true"
+                    android:text="0"
+                    android:textColor="@color/navy_blue" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/bg_editext"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/quicksand_book"
+                    android:padding="16dp"
+                    android:paddingStart="18dp"
+                    android:paddingEnd="6dp"
+                    android:singleLine="true"
+                    android:text=" Fresh Sources:"
+                    android:textColor="@color/navy_blue"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/sources_fresh"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/quicksand_book"
+                    android:padding="16dp"
+                    android:paddingStart="18dp"
+                    android:paddingEnd="5dp"
+                    android:singleLine="true"
+                    android:text="0"
+                    android:textColor="@color/navy_blue" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/bg_editext"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/quicksand_book"
+                    android:padding="16dp"
+                    android:paddingStart="18dp"
+                    android:paddingEnd="6dp"
+                    android:singleLine="true"
+                    android:text="Salty Sources:"
+                    android:textColor="@color/navy_blue"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/sources_salty"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/quicksand_book"
+                    android:padding="16dp"
+                    android:paddingStart="18dp"
+                    android:paddingEnd="5dp"
+                    android:singleLine="true"
+                    android:text="0"
+                    android:textColor="@color/navy_blue" />
+
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="3dp"
+                android:layout_marginTop="6dp"
+                android:layout_marginBottom="6dp"
+                android:background="@color/holo_blue_dark" />
+
+            <TextView
+                android:id="@+id/textViewRiver"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="@font/kanit_bold"
+                android:text="Rivers "
+                android:textColor="@color/navy_blue"
+                android:textSize="15sp" />
+
+            <LinearLayout
+
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="15dp"
+                android:orientation="horizontal">
+
+                <LinearLayout
+
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+
+                    android:orientation="vertical">
+
+                    <ProgressBar
+                        android:id="@+id/progress_total_rivers"
+                        style="@style/Widget.ProgressBar.Vertical"
+                        android:layout_width="40dp"
+                        android:layout_height="300dp"
+                        android:max="100"
+                        android:progress="0" />
+
+
+                    <TextView
+                        android:id="@+id/total_rivers"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:fontFamily="@font/quicksand_book"
+                        android:singleLine="true"
+                        android:text="0"
+                        android:textColor="@color/navy_blue" />
+
+                    <TextView
+
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:fontFamily="@font/quicksand_book"
+                        android:singleLine="true"
+                        android:text="Total"
+                        android:textColor="@color/navy_blue"
+                        android:textStyle="bold" />
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="40dp"
+                    android:layout_marginTop="15dp"
+                    android:orientation="vertical">
+
+                    <ProgressBar
+                        android:id="@+id/progress_fresh_rivers"
+                        style="@style/Widget.ProgressBar.Vertical"
+                        android:layout_width="40dp"
+                        android:layout_height="300dp"
+                        android:max="100"
+                        android:progress="0" />
+
+                    <TextView
+                        android:id="@+id/rivers_fresh"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:fontFamily="@font/quicksand_book"
+                        android:singleLine="true"
+                        android:text="0"
+                        android:textColor="@color/navy_blue" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:fontFamily="@font/quicksand_book"
+                        android:singleLine="true"
+                        android:text=" Fresh"
+                        android:textColor="@color/navy_blue"
+                        android:textStyle="bold" />
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="40dp"
+                    android:layout_marginTop="15dp"
+
+                    android:orientation="vertical">
+
+                    <ProgressBar
+                        android:id="@+id/progress_salty_rivers"
+                        style="@style/Widget.ProgressBar.Vertical"
+                        android:layout_width="40dp"
+                        android:layout_height="300dp"
+                        android:max="100"
+                        android:progress="0" />
+
+                    <TextView
+                        android:id="@+id/rivers_salty"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:fontFamily="@font/quicksand_book"
+                        android:singleLine="true"
+                        android:text="0"
+                        android:textColor="@color/navy_blue" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:fontFamily="@font/quicksand_book"
+                        android:singleLine="true"
+                        android:text="Salty"
+                        android:textColor="@color/navy_blue"
+                        android:textStyle="bold" />
+
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="3dp"
+                android:layout_marginTop="6dp"
+                android:layout_marginBottom="6dp"
+                android:background="@color/holo_blue_dark" />
+
+            <TextView
+                android:id="@+id/textViewLake"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="@font/kanit_bold"
+                android:text="Lakes"
+                android:textColor="@color/navy_blue"
+                android:textSize="15sp" />
+
+            <LinearLayout
+
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="15dp"
+                android:orientation="horizontal">
+
+                <LinearLayout
+
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+
+                    android:orientation="vertical">
+
+                    <ProgressBar
+                        android:id="@+id/progress_total_lakes"
+                        style="@style/Widget.ProgressBar.Vertical"
+                        android:layout_width="40dp"
+                        android:layout_height="300dp"
+                        android:max="100"
+                        android:progress="0" />
+
+
+                    <TextView
+                        android:id="@+id/total_lakes"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:fontFamily="@font/quicksand_book"
+                        android:singleLine="true"
+                        android:text="0"
+                        android:textColor="@color/navy_blue" />
+
+                    <TextView
+
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:fontFamily="@font/quicksand_book"
+                        android:singleLine="true"
+                        android:text="Total"
+                        android:textColor="@color/navy_blue"
+                        android:textStyle="bold" />
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="40dp"
+                    android:layout_marginTop="15dp"
+                    android:orientation="vertical">
+
+                    <ProgressBar
+                        android:id="@+id/progress_fresh_lakes"
+                        style="@style/Widget.ProgressBar.Vertical"
+                        android:layout_width="40dp"
+                        android:layout_height="300dp"
+                        android:max="100"
+                        android:progress="0" />
+
+                    <TextView
+                        android:id="@+id/lakes_fresh"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:fontFamily="@font/quicksand_book"
+                        android:singleLine="true"
+                        android:text="0"
+                        android:textColor="@color/navy_blue" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:fontFamily="@font/quicksand_book"
+                        android:singleLine="true"
+                        android:text=" Fresh"
+                        android:textColor="@color/navy_blue"
+                        android:textStyle="bold" />
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="40dp"
+                    android:layout_marginTop="15dp"
+
+                    android:orientation="vertical">
+
+                    <ProgressBar
+                        android:id="@+id/progress_salty_lakes"
+                        style="@style/Widget.ProgressBar.Vertical"
+                        android:layout_width="40dp"
+                        android:layout_height="300dp"
+                        android:max="100"
+                        android:progress="0" />
+
+                    <TextView
+                        android:id="@+id/lakes_salty"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:fontFamily="@font/quicksand_book"
+                        android:singleLine="true"
+                        android:text="0"
+                        android:textColor="@color/navy_blue" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:fontFamily="@font/quicksand_book"
+                        android:singleLine="true"
+                        android:text="Salty"
+                        android:textColor="@color/navy_blue"
+                        android:textStyle="bold" />
+
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="3dp"
+                android:layout_marginTop="6dp"
+                android:layout_marginBottom="6dp"
+                android:background="@color/holo_blue_dark" />
+
+            <TextView
+                android:id="@+id/textViewDam"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="@font/kanit_bold"
+                android:text="Dams"
+                android:textColor="@color/navy_blue"
+                android:textSize="15sp" />
+            <LinearLayout
+
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="15dp"
+                android:orientation="horizontal">
+
+                <LinearLayout
+
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+
+                    android:orientation="vertical">
+
+                    <ProgressBar
+                        android:id="@+id/progress_total_dams"
+                        style="@style/Widget.ProgressBar.Vertical"
+                        android:layout_width="40dp"
+                        android:layout_height="300dp"
+                        android:max="100"
+                        android:progress="0" />
+
+
+                    <TextView
+                        android:id="@+id/total_dams"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:fontFamily="@font/quicksand_book"
+                        android:singleLine="true"
+                        android:text="0"
+                        android:textColor="@color/navy_blue" />
+
+                    <TextView
+
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:fontFamily="@font/quicksand_book"
+                        android:singleLine="true"
+                        android:text="Total"
+                        android:textColor="@color/navy_blue"
+                        android:textStyle="bold" />
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="40dp"
+                    android:layout_marginTop="15dp"
+                    android:orientation="vertical">
+
+                    <ProgressBar
+                        android:id="@+id/progress_fresh_dams"
+                        style="@style/Widget.ProgressBar.Vertical"
+                        android:layout_width="40dp"
+                        android:layout_height="300dp"
+                        android:max="100"
+                        android:progress="0" />
+
+                    <TextView
+                        android:id="@+id/dams_fresh"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:fontFamily="@font/quicksand_book"
+                        android:singleLine="true"
+                        android:text="0"
+                        android:textColor="@color/navy_blue" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:fontFamily="@font/quicksand_book"
+                        android:singleLine="true"
+                        android:text=" Fresh"
+                        android:textColor="@color/navy_blue"
+                        android:textStyle="bold" />
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="40dp"
+                    android:layout_marginTop="15dp"
+
+                    android:orientation="vertical">
+
+                    <ProgressBar
+                        android:id="@+id/progress_salty_dams"
+                        style="@style/Widget.ProgressBar.Vertical"
+                        android:layout_width="40dp"
+                        android:layout_height="300dp"
+                        android:max="100"
+                        android:progress="0" />
+
+                    <TextView
+                        android:id="@+id/dams_salty"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:fontFamily="@font/quicksand_book"
+                        android:singleLine="true"
+                        android:text="0"
+                        android:textColor="@color/navy_blue" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:fontFamily="@font/quicksand_book"
+                        android:singleLine="true"
+                        android:text="Salty"
+                        android:textColor="@color/navy_blue"
+                        android:textStyle="bold" />
+
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="3dp"
+                android:layout_marginTop="6dp"
+                android:layout_marginBottom="6dp"
+                android:background="@color/holo_blue_dark" />
+
+            <TextView
+                android:id="@+id/textViewSprings"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="@font/kanit_bold"
+                android:text="Springs"
+                android:textColor="@color/navy_blue"
+                android:textSize="15sp" />
+
+            <LinearLayout
+
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="15dp"
+                android:orientation="horizontal">
+
+                <LinearLayout
+
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+
+                    android:orientation="vertical">
+
+                    <ProgressBar
+                        android:id="@+id/progress_total_springs"
+                        style="@style/Widget.ProgressBar.Vertical"
+                        android:layout_width="40dp"
+                        android:layout_height="300dp"
+                        android:max="100"
+                        android:progress="0" />
+
+
+                    <TextView
+                        android:id="@+id/total_springs"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:fontFamily="@font/quicksand_book"
+                        android:singleLine="true"
+                        android:text="0"
+                        android:textColor="@color/navy_blue" />
+
+                    <TextView
+
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:fontFamily="@font/quicksand_book"
+                        android:singleLine="true"
+                        android:text="Total"
+                        android:textColor="@color/navy_blue"
+                        android:textStyle="bold" />
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="40dp"
+                    android:layout_marginTop="15dp"
+                    android:orientation="vertical">
+
+                    <ProgressBar
+                        android:id="@+id/progress_fresh_springs"
+                        style="@style/Widget.ProgressBar.Vertical"
+                        android:layout_width="40dp"
+                        android:layout_height="300dp"
+                        android:max="100"
+                        android:progress="0" />
+
+                    <TextView
+                        android:id="@+id/springs_fresh"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:fontFamily="@font/quicksand_book"
+                        android:singleLine="true"
+                        android:text="0"
+                        android:textColor="@color/navy_blue" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:fontFamily="@font/quicksand_book"
+                        android:singleLine="true"
+                        android:text=" Fresh"
+                        android:textColor="@color/navy_blue"
+                        android:textStyle="bold" />
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="40dp"
+                    android:layout_marginTop="15dp"
+
+                    android:orientation="vertical">
+
+                    <ProgressBar
+                        android:id="@+id/progress_salty_springs"
+                        style="@style/Widget.ProgressBar.Vertical"
+                        android:layout_width="40dp"
+                        android:layout_height="300dp"
+                        android:max="100"
+                        android:progress="0" />
+
+                    <TextView
+                        android:id="@+id/springs_salty"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:fontFamily="@font/quicksand_book"
+                        android:singleLine="true"
+                        android:text="0"
+                        android:textColor="@color/navy_blue" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:fontFamily="@font/quicksand_book"
+                        android:singleLine="true"
+                        android:text="Salty"
+                        android:textColor="@color/navy_blue"
+                        android:textStyle="bold" />
+
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="3dp"
+                android:layout_marginTop="6dp"
+                android:layout_marginBottom="6dp"
+                android:background="@color/holo_blue_dark" />
+
+            <TextView
+                android:id="@+id/textViewBoreholes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="@font/kanit_bold"
+                android:text="Boreholes"
+                android:textColor="@color/navy_blue"
+                android:textSize="15sp" />
+
+            <LinearLayout
+
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="15dp"
+                android:orientation="horizontal">
+
+                <LinearLayout
+
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+
+                    android:orientation="vertical">
+
+                    <ProgressBar
+                        android:id="@+id/progress_total_boreholes"
+                        style="@style/Widget.ProgressBar.Vertical"
+                        android:layout_width="40dp"
+                        android:layout_height="300dp"
+                        android:max="100"
+                        android:progress="0" />
+
+
+                    <TextView
+                        android:id="@+id/total_boreholes"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:fontFamily="@font/quicksand_book"
+                        android:singleLine="true"
+                        android:text="0"
+                        android:textColor="@color/navy_blue" />
+
+                    <TextView
+
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:fontFamily="@font/quicksand_book"
+                        android:singleLine="true"
+                        android:text="Total"
+                        android:textColor="@color/navy_blue"
+                        android:textStyle="bold" />
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="40dp"
+                    android:layout_marginTop="15dp"
+                    android:orientation="vertical">
+
+                    <ProgressBar
+                        android:id="@+id/progress_fresh_boreholes"
+                        style="@style/Widget.ProgressBar.Vertical"
+                        android:layout_width="40dp"
+                        android:layout_height="300dp"
+                        android:max="100"
+                        android:progress="0" />
+
+                    <TextView
+                        android:id="@+id/boreholes_fresh"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:fontFamily="@font/quicksand_book"
+                        android:singleLine="true"
+                        android:text="0"
+                        android:textColor="@color/navy_blue" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:fontFamily="@font/quicksand_book"
+                        android:singleLine="true"
+                        android:text=" Fresh"
+                        android:textColor="@color/navy_blue"
+                        android:textStyle="bold" />
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="40dp"
+                    android:layout_marginTop="15dp"
+
+                    android:orientation="vertical">
+
+                    <ProgressBar
+                        android:id="@+id/progress_salty_boreholes"
+                        style="@style/Widget.ProgressBar.Vertical"
+                        android:layout_width="40dp"
+                        android:layout_height="300dp"
+                        android:max="100"
+                        android:progress="0" />
+
+                    <TextView
+                        android:id="@+id/borholes_salty"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:fontFamily="@font/quicksand_book"
+                        android:singleLine="true"
+                        android:text="0"
+                        android:textColor="@color/navy_blue" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:fontFamily="@font/quicksand_book"
+                        android:singleLine="true"
+                        android:text="Salty"
+                        android:textColor="@color/navy_blue"
+                        android:textStyle="bold" />
+
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="3dp"
+                android:layout_marginTop="6dp"
+                android:layout_marginBottom="6dp"
+                android:background="@color/holo_blue_dark" />
+
+            <TextView
+                android:id="@+id/textViewTaps"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="@font/kanit_bold"
+                android:text="Taps"
+                android:textColor="@color/navy_blue"
+                android:textSize="15sp" />
+
+            <LinearLayout
+
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="15dp"
+                android:orientation="horizontal">
+
+                <LinearLayout
+
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+
+                    android:orientation="vertical">
+
+                    <ProgressBar
+                        android:id="@+id/progress_total_taps"
+                        style="@style/Widget.ProgressBar.Vertical"
+                        android:layout_width="40dp"
+                        android:layout_height="300dp"
+                        android:max="100"
+                        android:progress="0" />
+
+
+                    <TextView
+                        android:id="@+id/total_taps"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:fontFamily="@font/quicksand_book"
+                        android:singleLine="true"
+                        android:text="0"
+                        android:textColor="@color/navy_blue" />
+
+                    <TextView
+
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:fontFamily="@font/quicksand_book"
+                        android:singleLine="true"
+                        android:text="Total"
+                        android:textColor="@color/navy_blue"
+                        android:textStyle="bold" />
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="40dp"
+                    android:layout_marginTop="15dp"
+                    android:orientation="vertical">
+
+                    <ProgressBar
+                        android:id="@+id/progress_fresh_taps"
+                        style="@style/Widget.ProgressBar.Vertical"
+                        android:layout_width="40dp"
+                        android:layout_height="300dp"
+                        android:max="100"
+                        android:progress="0" />
+
+                    <TextView
+                        android:id="@+id/taps_fresh"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:fontFamily="@font/quicksand_book"
+                        android:singleLine="true"
+                        android:text="0"
+                        android:textColor="@color/navy_blue" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:fontFamily="@font/quicksand_book"
+                        android:singleLine="true"
+                        android:text=" Fresh"
+                        android:textColor="@color/navy_blue"
+                        android:textStyle="bold" />
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="40dp"
+                    android:layout_marginTop="15dp"
+
+                    android:orientation="vertical">
+
+                    <ProgressBar
+                        android:id="@+id/progress_salty_taps"
+                        style="@style/Widget.ProgressBar.Vertical"
+                        android:layout_width="40dp"
+                        android:layout_height="300dp"
+                        android:max="100"
+                        android:progress="0" />
+
+                    <TextView
+                        android:id="@+id/taps_salty"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:fontFamily="@font/quicksand_book"
+                        android:singleLine="true"
+                        android:text="0"
+                        android:textColor="@color/navy_blue" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:fontFamily="@font/quicksand_book"
+                        android:singleLine="true"
+                        android:text="Salty"
+                        android:textColor="@color/navy_blue"
+                        android:textStyle="bold" />
+
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="3dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
+                android:background="@color/holo_blue_dark" />
+
+            <TextView
+                android:id="@+id/textViewEnd"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="@font/kanit_bold"
+                android:text="---End of Report---"
+                android:textColor="@color/navy_blue"
+                android:textSize="15sp" />
+
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout><?xml version="1.0" encoding="utf-8"?>
+
+
