@@ -21,7 +21,7 @@ public class UploadSpringsSubtotals  extends Worker {
     private static final String PATH = "/";
     private static String sources,fresh, salty, county, subCounty, ward;
     private static String mLongitude;
-    private DatabaseReference surveyRef,mDatabaseUsers,countyRef,subCountyRef,wardRef;
+    private DatabaseReference surveyRef,mDatabaseUsers,countyRef,subCountyRef,wardRef,nationalRef;
     private FirebaseAuth mAuth;
     private FirebaseUser mCurrentUser;
 
@@ -52,6 +52,7 @@ public class UploadSpringsSubtotals  extends Worker {
             countyRef = FirebaseDatabase.getInstance().getReference().child("Counties");
             subCountyRef =FirebaseDatabase.getInstance().getReference().child("SubCounties");
             wardRef =FirebaseDatabase.getInstance().getReference().child("Wards");
+            nationalRef = FirebaseDatabase.getInstance().getReference().child("Kenya");
             mDatabaseUsers= FirebaseDatabase.getInstance().getReference().child("users").child(mAuth.getCurrentUser().getUid());
 
             final  DatabaseReference newCounty = countyRef.child(county).push();
@@ -166,7 +167,42 @@ public class UploadSpringsSubtotals  extends Worker {
                 }
             });
 
+            final  DatabaseReference newNation = nationalRef.child("Kenya").push();
 
+            nationalRef.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                    // countyRef.child("myCounties").setValue(county);
+                    newNation.child("county").setValue(county);
+
+                    newNation.child("sourceTotal").setValue(sources);
+                    newNation.child("sourcesFresh").setValue(fresh);
+                    newNation.child("sourcesSalty").setValue(salty);
+                    newNation.child("totalRivers").setValue("0");
+                    newNation.child("riversFresh").setValue("0");
+                    newNation.child("riversSalty").setValue("0");
+                    newNation.child("totalLakes").setValue("0");
+                    newNation.child("lakesFresh").setValue("0");
+                    newNation.child("lakesSalty").setValue("0");
+                    newNation.child("totalSprings").setValue(sources);
+                    newNation.child("springsFresh").setValue(fresh);
+                    newNation.child("springSalty").setValue(salty);
+                    newNation.child("totalDams").setValue("0");
+                    newNation.child("damsFresh").setValue("0");
+                    newNation.child("damsSalty").setValue("0");
+                    newNation.child("totalBoreholes").setValue("0");
+                    newNation.child("boreholesFresh").setValue("0");
+                    newNation.child("boreholesSalty").setValue("0");
+                    newNation.child("totalTaps").setValue("0");
+                    newNation.child("tapsFresh").setValue("0");
+                    newNation.child("tapsSalty").setValue("0");
+
+                }
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) {
+
+                }
+            });
 
         }
     }

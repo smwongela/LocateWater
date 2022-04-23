@@ -175,7 +175,7 @@ public class StepTwoRiversActivity extends AppCompatActivity {
             //loginIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(loginIntent);
         }
-        surveyRef = FirebaseDatabase.getInstance().getReference().child("Survey").child(post_key);
+        surveyRef = FirebaseDatabase.getInstance().getReference().child("Rivers").child(post_key);
         countyRef =FirebaseDatabase.getInstance().getReference().child("Counties");
         subCountyRef =FirebaseDatabase.getInstance().getReference().child("SubCounties");
         wardRef =FirebaseDatabase.getInstance().getReference().child("Wards");
@@ -241,7 +241,7 @@ public class StepTwoRiversActivity extends AppCompatActivity {
                         public void onComplete(@NonNull Task<Void> task) {
                             if (task.isSuccessful()) {
                                 //show a toast to indicate the profile was updated
-
+                                scheduleJob();
                                 //launch the login activity
                                 progressDialog.dismiss();
                                 Toast.makeText(StepTwoRiversActivity.this, " Upload Successful", Toast.LENGTH_SHORT).show();
@@ -249,10 +249,9 @@ public class StepTwoRiversActivity extends AppCompatActivity {
                                 final String post_key = surveyRef.getKey();
 
                                 progressBar.setVisibility(View.GONE);
-                                scheduleJob();
+
                                 Intent next = new Intent(StepTwoRiversActivity.this, MainActivity.class);
-                                //next.putExtra("PostKey", post_key);
-                               // next.putExtra("sourceType",sourceType);
+
 
                                 startActivity(next);
                                 finish();
@@ -269,150 +268,7 @@ public class StepTwoRiversActivity extends AppCompatActivity {
                 }
             });
 
-/*
-            final  DatabaseReference newCounty = countyRef.child(county).push();
 
-                                            countyRef.addValueEventListener(new ValueEventListener() {
-                                                @Override
-                                                public void onDataChange(@NonNull DataSnapshot snapshot) {
-                                                    // countyRef.child("myCounties").setValue(county);
-                                                    newCounty.child("subcounty").setValue(subCounty);
-                                                    newCounty.child("village").setValue(village + " " + "Village");
-                                                    newCounty.child("sourceTotal").setValue(sources);
-                                                    newCounty.child("sourcesFresh").setValue(fresh);
-                                                    newCounty.child("sourcesSalty").setValue(salty);
-                                                    newCounty.child("totalRivers").setValue(sources);
-                                                    newCounty.child("riversFresh").setValue(fresh);
-                                                    newCounty.child("riversSalty").setValue(salty);
-                                                    newCounty.child("totalLakes").setValue("0");
-                                                    newCounty.child("lakesFresh").setValue("0");
-                                                    newCounty.child("lakesSalty").setValue("0");
-                                                    newCounty.child("totalSprings").setValue("0");
-                                                    newCounty.child("springsFresh").setValue("0");
-                                                    newCounty.child("springSalty").setValue("0");
-                                                    newCounty.child("totalDams").setValue("0");
-                                                    newCounty.child("damsFresh").setValue("0");
-                                                    newCounty.child("damsSalty").setValue("0");
-                                                    newCounty.child("totalBoreholes").setValue("0");
-                                                    newCounty.child("boreholesFresh").setValue("0");
-                                                    newCounty.child("boreholesSalty").setValue("0");
-                                                    newCounty.child("totalTaps").setValue("0");
-                                                    newCounty.child("tapsFresh").setValue("0");
-                                                    newCounty.child("tapsSalty").setValue("0");
-
-                                                }
-
-                                                @Override
-                                                public void onCancelled(@NonNull DatabaseError error) {
-
-                                                }
-                                            });
-
-                                            final  DatabaseReference newSubCounty = subCountyRef.child(subCounty).push();
-
-                                            subCountyRef.addValueEventListener(new ValueEventListener() {
-                                                @Override
-                                                public void onDataChange(@NonNull DataSnapshot snapshot) {
-                                                    // countyRef.child("myCounties").setValue(county);
-                                                    newSubCounty.child("subcounty").setValue(subCounty);
-                                                    newSubCounty.child("village").setValue(village + " " + "Village");
-                                                    newSubCounty.child("sourceTotal").setValue(sources);
-                                                    newSubCounty.child("sourcesFresh").setValue(fresh);
-                                                    newSubCounty.child("sourcesSalty").setValue(salty);
-                                                    newSubCounty.child("totalRivers").setValue(sources);
-                                                    newSubCounty.child("riversFresh").setValue(fresh);
-                                                    newSubCounty.child("riversSalty").setValue(salty);
-                                                    newSubCounty.child("totalLakes").setValue("0");
-                                                    newSubCounty.child("lakesFresh").setValue("0");
-                                                    newSubCounty.child("lakesSalty").setValue("0");
-                                                    newSubCounty.child("totalSprings").setValue("0");
-                                                    newSubCounty.child("springsFresh").setValue("0");
-                                                    newSubCounty.child("springSalty").setValue("0");
-                                                    newSubCounty.child("totalDams").setValue("0");
-                                                    newSubCounty.child("damsFresh").setValue("0");
-                                                    newSubCounty.child("damsSalty").setValue("0");
-                                                    newSubCounty.child("totalBoreholes").setValue("0");
-                                                    newSubCounty.child("boreholesFresh").setValue("0");
-                                                    newSubCounty.child("boreholesSalty").setValue("0");
-                                                    newSubCounty.child("totalTaps").setValue("0");
-                                                    newSubCounty.child("tapsFresh").setValue("0");
-                                                    newSubCounty.child("tapsSalty").setValue("0");
-
-                                                }
-
-                                                @Override
-                                                public void onCancelled(@NonNull DatabaseError error) {
-
-                                                }
-                                            });
-                                            final  DatabaseReference newWard = wardRef.child(ward).push();
-
-                                            wardRef.addValueEventListener(new ValueEventListener() {
-                                                @Override
-                                                public void onDataChange(@NonNull DataSnapshot snapshot) {
-                                                    // countyRef.child("myCounties").setValue(county);
-                                                    newWard.child("subcounty").setValue(subCounty);
-                                                    newWard.child("village").setValue(village + " " + "Village");
-                                                    newWard.child("sourceTotal").setValue(sources);
-                                                    newWard.child("sourcesFresh").setValue(fresh);
-                                                    newWard.child("sourcesSalty").setValue(salty);
-                                                    newWard.child("totalRivers").setValue(sources);
-                                                    newWard.child("riversFresh").setValue(fresh);
-                                                    newWard.child("riversSalty").setValue(salty);
-                                                    newWard.child("totalLakes").setValue("0");
-                                                    newWard.child("lakesFresh").setValue("0");
-                                                    newWard.child("lakesSalty").setValue("0");
-                                                    newWard.child("totalSprings").setValue("0");
-                                                    newWard.child("springsFresh").setValue("0");
-                                                    newWard.child("springSalty").setValue("0");
-                                                    newWard.child("totalDams").setValue("0");
-                                                    newWard.child("damsFresh").setValue("0");
-                                                    newWard.child("damsSalty").setValue("0");
-                                                    newWard.child("totalBoreholes").setValue("0");
-                                                    newWard.child("boreholesFresh").setValue("0");
-                                                    newWard.child("boreholesSalty").setValue("0");
-                                                    newWard.child("totalTaps").setValue("0");
-                                                    newWard.child("tapsFresh").setValue("0");
-                                                    newWard.child("tapsSalty").setValue("0")
-                                                             .addOnCompleteListener(new OnCompleteListener<Void>() {
-                                                        @Override
-                                                        public void onComplete(@NonNull Task<Void> task) {
-                                                            if (task.isSuccessful()) {
-                                                                //show a toast to indicate the profile was updated
-                                                                 Toast.makeText(StepTwoRiversActivity.this, " Upload Successful", Toast.LENGTH_SHORT).show();
-                                                                //launch the login activity
-                                                                progressDialog.dismiss();
-                                                                // Toast.makeText(StepTwoRiversActivity.this, "Upload Complete", Toast.LENGTH_SHORT).show();
-                                                                final String post_key = surveyRef.getKey();
-
-                                                                progressBar.setVisibility(View.GONE);
-                                                                Intent next = new Intent(StepTwoRiversActivity.this, VideoActivity.class);
-                                                                next.putExtra("PostKey", post_key);
-
-                                                                startActivity(next);
-                                                                finish();
-                                                            }
-                                                        }
-                                                    });
-
-                                                }
-
-                                                @Override
-                                                public void onCancelled(@NonNull DatabaseError error) {
-
-                                                }
-                                            });
-
-
-
-
-                                           // surveyRef.push();
-
-
-                                            //call the method addValueEventListener to publish the additions in  the database reference of a specific user
-
-
- */
                                         }
 
     }

@@ -2,10 +2,19 @@ package com.boreholes.locatewater.activities;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.LiveData;
+import androidx.work.ExistingPeriodicWorkPolicy;
 import androidx.work.ExistingWorkPolicy;
 import androidx.work.OneTimeWorkRequest;
+import androidx.work.Operation;
+import androidx.work.PeriodicWorkRequest;
+import androidx.work.WorkContinuation;
+import androidx.work.WorkInfo;
 import androidx.work.WorkManager;
+import androidx.work.WorkQuery;
+import androidx.work.WorkRequest;
 
+import android.app.PendingIntent;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
@@ -21,6 +30,7 @@ import com.boreholes.locatewater.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.common.util.concurrent.ListenableFuture;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -31,6 +41,8 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
+import java.util.UUID;
 
 public class StepTwoSpringsActivity extends AppCompatActivity {
 
@@ -168,7 +180,7 @@ public class StepTwoSpringsActivity extends AppCompatActivity {
             //loginIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(loginIntent);
         }
-        surveyRef = FirebaseDatabase.getInstance().getReference().child("Survey").child(post_key);
+        surveyRef = FirebaseDatabase.getInstance().getReference().child("Springs").child(post_key);
         countyRef =FirebaseDatabase.getInstance().getReference().child("Counties");
         subCountyRef =FirebaseDatabase.getInstance().getReference().child("SubCounties");
         wardRef =FirebaseDatabase.getInstance().getReference().child("Wards");
@@ -217,14 +229,14 @@ public class StepTwoSpringsActivity extends AppCompatActivity {
                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                     //add the profilePhoto and displayName for the current user
 
-                    surveyRef.child("county").setValue(county );
+                    surveyRef.child ("county").setValue(county );
                     surveyRef.child("subCounty").setValue(subCounty);
                     surveyRef.child("ward").setValue(ward).addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {
                             if (task.isSuccessful()) {
                                 //show a toast to indicate the profile was updated
-
+                                scheduleJob();
                                 //launch the login activity
                                 progressDialog.dismiss();
                                 Toast.makeText(StepTwoSpringsActivity.this, " Upload Successful", Toast.LENGTH_SHORT).show();
@@ -232,7 +244,7 @@ public class StepTwoSpringsActivity extends AppCompatActivity {
                                 final String post_key = surveyRef.getKey();
 
                                 progressBar.setVisibility(View.GONE);
-                                scheduleJob();
+
                                 Intent next = new Intent(StepTwoSpringsActivity.this, MainActivity.class);
 
 
@@ -279,6 +291,8 @@ public class StepTwoSpringsActivity extends AppCompatActivity {
     }
     private void scheduleJob() {
         // [START dispatch_job]
+
+
         OneTimeWorkRequest work = new OneTimeWorkRequest.Builder(UploadSpringsSubtotals.class)
                 .build();
         Date videDate = new Date();

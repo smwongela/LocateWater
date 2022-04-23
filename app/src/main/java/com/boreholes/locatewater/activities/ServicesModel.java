@@ -3,14 +3,15 @@ package com.boreholes.locatewater.activities;
 public class ServicesModel {
 
     //declare the variable
-    private String title, desc, cost, serviceImage;
+    private String location, videoTitle, county,subCounty,ward;
     //create a constructor
 
-    public ServicesModel(String title, String desc, String cost, String serviceImages) {
-        this.title = title;
-        this.desc = desc;
-        this.cost = cost;
-        this.serviceImage =serviceImage;
+    public ServicesModel(String location, String videoTitle, String county, String subCounty, String ward) {
+        this.location = location;
+        this.videoTitle = videoTitle;
+        this.county = county;
+        this.subCounty =subCounty;
+        this.ward = ward;
 
     }
     //requires an empty constructor
@@ -21,38 +22,45 @@ public class ServicesModel {
 
 
 
-    public void setTitle(String title) {
-        this.title = title;
+    public void setLocation(String location) {
+        this.location = location;
     }
 
-    public void setDesc(String desc) {
-        this.desc = desc;
+   public void setVideoTitle(String videoTitle) {
+        this.videoTitle = videoTitle;
     }
 
-    public void setCost(String cost) {
-        this.cost = cost;
+    public void setCounty(String county) {
+        this.county = county;
     }
-    public void setServiceImage(String serviceImage) {
-        this.serviceImage = serviceImage;
+    public void setSubCounty(String subCounty) {
+        this.subCounty = subCounty;
     }
+    public  void setWard(String ward){this.ward=ward;}
+
+
+
 
     //getters
 
 
 
-    public String getTitle() {
-        return title;
+    public String getLocation() {
+        return location;
     }
 
-    public String getDesc() {
-        return desc;
+    public String getVideoTitle() {
+        return videoTitle;
     }
 
-    public String getCost() {
-        return cost;
+    public String getCounty() {
+        return county;
     }
-    public String getServiceImage() {
-        return serviceImage;
+    public String getSubCounty() {
+        return subCounty;
+    }
+    public String getWard(){
+        return ward;
     }
 
 

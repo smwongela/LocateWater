@@ -164,7 +164,7 @@ public class StepTwoBoreholesActivity extends AppCompatActivity {
             //loginIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(loginIntent);
         }
-        surveyRef = FirebaseDatabase.getInstance().getReference().child("Survey").child(post_key);
+        surveyRef = FirebaseDatabase.getInstance().getReference().child("Boreholes").child(post_key);
         countyRef =FirebaseDatabase.getInstance().getReference().child("Counties");
         subCountyRef =FirebaseDatabase.getInstance().getReference().child("SubCounties");
         wardRef =FirebaseDatabase.getInstance().getReference().child("Wards");
@@ -220,7 +220,7 @@ public class StepTwoBoreholesActivity extends AppCompatActivity {
                         public void onComplete(@NonNull Task<Void> task) {
                             if (task.isSuccessful()) {
                                 //show a toast to indicate the profile was updated
-
+                                scheduleJob();
                                 //launch the login activity
                                 progressDialog.dismiss();
                                 Toast.makeText(StepTwoBoreholesActivity.this, " Upload Successful", Toast.LENGTH_SHORT).show();
@@ -228,7 +228,7 @@ public class StepTwoBoreholesActivity extends AppCompatActivity {
                                 final String post_key = surveyRef.getKey();
 
                                 progressBar.setVisibility(View.GONE);
-                                scheduleJob();
+
                                 Intent next = new Intent(StepTwoBoreholesActivity.this, MainActivity.class);
 
 

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:id="@+id/display"
+    android:orientation="vertical"
+    android:background="@drawable/watershed"
+    android:layout_height="match_parent"
+    tools:context=".activities.PlayVideoActivity"
+    >
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/tool_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:background="@color/colorPrimaryDark"
+        android:gravity="center"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+
+        app:titleTextAppearance="@style/app_title">
+
+        <ImageView
+            android:id="@+id/closeBtn"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="10dp"
+            android:src="@drawable/ic_close" />
+
+        <TextView
+            android:id="@+id/txtNewPost"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_weight="1"
+            android:fontFamily="@font/kanit_bold"
+            android:gravity="center"
+            android:text="Source Video"
+            android:textColor="@color/yellow_color"
+            android:textSize="25sp" />
+
+    </androidx.appcompat.widget.Toolbar>
+
+
+    <!--Widget for exoplayer view-->
+    <com.google.android.exoplayer2.ui.SimpleExoPlayerView
+        android:id="@+id/idExoPlayerView"
+        android:layout_width="match_parent"
+        android:layout_below="@id/tool_bar"
+        android:layout_height="500dp" />
+    <Button
+        android:id="@+id/backBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Back"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="20dp"
+        android:textStyle="bold"
+        android:clickable="true"
+        android:textColor="@color/white"
+        android:background="@drawable/layout_special"
+
+        android:focusable="true" />
+
+</RelativeLayout>

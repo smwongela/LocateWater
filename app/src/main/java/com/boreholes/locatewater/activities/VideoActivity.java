@@ -117,7 +117,7 @@ public class VideoActivity extends AppCompatActivity {
         mStorage = FirebaseStorage.getInstance();
 
         //Initialize the Database Reference
-        databaseRef = FirebaseDatabase.getInstance().getReference().child("Survey").child(post_key);
+        databaseRef = FirebaseDatabase.getInstance().getReference().child(sourceType).child(post_key);
 
         //Get the currently logged in user
         mDatabaseUsers= FirebaseDatabase.getInstance().getReference().child("users").child(mAuth.getCurrentUser().getUid());
@@ -232,8 +232,8 @@ public class VideoActivity extends AppCompatActivity {
                                     @Override
                                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                                         databaseRef.child("videoPostId").setValue(postId);
-                                        databaseRef.child(sourceType).child("videoTitle").setValue(videoTitle);
-                                        databaseRef.child(sourceType).child("videoCaption").setValue(videoCaption);
+                                        databaseRef.child("videoTitle").setValue(videoTitle);
+                                        databaseRef.child("videoCaption").setValue(videoCaption);
                                         databaseRef.child("videoUrl").setValue(videoUrl);
                                         databaseRef.child("videoTime").setValue(time);
                                         databaseRef.child("videoDate").setValue(date)

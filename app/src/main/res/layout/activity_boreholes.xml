@@ -13,6 +13,7 @@
         android:layout_width="match_parent"
 
         android:layout_height="wrap_content">
+
         <RelativeLayout
             android:layout_width="match_parent"
 
@@ -219,8 +220,8 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="1dp"
                             android:layout_marginStart="10dp"
+                            android:layout_marginTop="1dp"
                             android:text="Salty:"
                             android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
                             android:textColor="@android:color/holo_blue_dark"
@@ -251,6 +252,7 @@
 
                         </com.google.android.material.textfield.TextInputLayout>
                     </LinearLayout>
+
                     <LinearLayout
                         android:id="@+id/layout_total"
                         android:layout_width="match_parent"

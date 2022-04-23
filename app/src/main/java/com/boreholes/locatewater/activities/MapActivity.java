@@ -64,7 +64,7 @@ public class MapActivity extends AppCompatActivity
         //nameddd = FirebaseDatabase.getInstance().getReference("Location").child("Name").toString();
         mDatabase = FirebaseDatabase.getInstance();
         //mDatabaseReference = FirebaseDatabase.getInstance().getReference().child("Reports");
-        surveyRef = FirebaseDatabase.getInstance().getReference().child("Survey");
+        surveyRef = FirebaseDatabase.getInstance().getReference().child("Locations");
     }
     // [END maps_marker_get_map_async]
     // [END_EXCLUDE]

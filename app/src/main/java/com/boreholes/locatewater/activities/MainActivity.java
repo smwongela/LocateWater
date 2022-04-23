@@ -213,18 +213,16 @@ public class MainActivity extends AppCompatActivity  implements NavigationView.O
             switch (id) {
                 case R.id.home:
                     break;
-                case R.id.share:
-                    Toast.makeText(getApplicationContext(),"Sorry... Application not ready for sharing.",Toast.LENGTH_SHORT).show();
-                    break;
+
                 case R.id.sourceAdd:
-                    Intent addSource = new Intent(MainActivity.this, SourceTypesActivity.class);
-                    startActivity(addSource);
-                case R.id.goMap:
-                    Intent viewMap = new Intent(MainActivity.this, MapActivity.class);
-                    startActivity(viewMap);
-                default:
-                    Toast.makeText(getApplicationContext(),"Functionality not available.",Toast.LENGTH_SHORT).show();
+              startActivity(new Intent(MainActivity.this, SourceTypesActivity.class));
                     break;
+                case R.id.goMap:
+                    startActivity(new Intent(MainActivity.this, MapActivity.class));
+                    break;
+
+                case R.id.viewSources:
+                    startActivity(new Intent(MainActivity.this, SourceListActivity.class));
             }
             drawer.closeDrawer(GravityCompat.START);
             return true;

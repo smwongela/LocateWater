@@ -3,8 +3,8 @@
     <stroke android:color="#fff"
         android:width="2dp"/>
     <corners android:radius="15dp"/>
-    <solid android:color="@color/forest_green"/>
-    <gradient android:centerColor="@color/forest_green"
+    <solid android:color="@color/color_transparent"/>
+    <gradient android:centerColor="@color/color_transparent"
         android:centerY="0"/>
 
 </shape>

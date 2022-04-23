@@ -92,7 +92,7 @@ public class RiversActivity extends AppCompatActivity  implements FetchAddressTa
     private final static int GALLERY_REQ = 1;
     private StorageReference mStorageRef;
     private FirebaseUser mCurrentUser;
-    private DatabaseReference surveyRef,mDatabaseUsers,countyRef,subCountyRef,wardRef;
+    private DatabaseReference riverRef,mDatabaseUsers,locationRef;
     private ProgressBar progressBar;
     private LinearLayout layoutTotals;
     private RelativeLayout layout;
@@ -154,7 +154,9 @@ public class RiversActivity extends AppCompatActivity  implements FetchAddressTa
         }
         mStorageRef = FirebaseStorage.getInstance().getReference().child("event_images");
 
-        surveyRef = FirebaseDatabase.getInstance().getReference().child("Survey");
+        riverRef = FirebaseDatabase.getInstance().getReference().child("Rivers");
+        locationRef =FirebaseDatabase.getInstance().getReference().child("Locations");
+
         /*
         countyRef =FirebaseDatabase.getInstance().getReference().child("Counties");
         subCountyRef =FirebaseDatabase.getInstance().getReference().child("SubCounties");
@@ -164,7 +166,7 @@ public class RiversActivity extends AppCompatActivity  implements FetchAddressTa
         //Initialize the instance of the firebase user
         mCurrentUser = mAuth.getCurrentUser();
         //Get currently logged in user
-        mDatabaseUsers = FirebaseDatabase.getInstance().getReference().child("users");
+        mDatabaseUsers = FirebaseDatabase.getInstance().getReference().child("Users");
         imageButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -449,6 +451,24 @@ public class RiversActivity extends AppCompatActivity  implements FetchAddressTa
 
 
             if (longitude != null) {
+                final DatabaseReference newLocation= locationRef.push();
+                locationRef.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        newLocation.child("village").setValue(village + " " + "Village");
+                        newLocation.child("type").setValue("Rivers");
+                        newLocation.child("Latitude").setValue(latitude);
+                        newLocation.child("Longitude").setValue(longitude);
+                        newLocation.child("sourceTotals").setValue(sources);
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+
+
 
                 if (event_image_uri != null) {
                     final ProgressDialog progressDialog = new ProgressDialog(this);
@@ -488,10 +508,7 @@ public class RiversActivity extends AppCompatActivity  implements FetchAddressTa
                                             final String eventImage = uri.toString();
                                             // call the method push() to add values on the database reference of  a specif user
 
-
-
-
-                                            final DatabaseReference newSurvey= surveyRef.push();
+                                            final DatabaseReference newSurvey= riverRef.push();
 
 
                                             //call the method addValueEventListener to publish the additions in  the database reference of a specific user
@@ -500,23 +517,19 @@ public class RiversActivity extends AppCompatActivity  implements FetchAddressTa
                                                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                                                     //add the profilePhoto and displayName for the current user
                                                     newSurvey.child("village").setValue(village + " " + "Village");
-                                                    //newSurvey.child("county").setValue(county );
-                                                   // newSurvey.child("subCounty").setValue(subCounty);
-                                                   // newSurvey.child("ward").setValue(ward);
-
                                                     newSurvey.child("Latitude").setValue(latitude);
                                                     newSurvey.child("Longitude").setValue(longitude);
                                                     newSurvey.child("sourceTotals").setValue(sources);
                                                     newSurvey.child("sourcesFresh").setValue(fresh);
                                                     newSurvey.child("sourcesSalty").setValue(salty);
-                                                    newSurvey.child("type").setValue("Rivers");
-                                                    newSurvey.child("Rivers").child("location").setValue(mLocation);
-                                                    newSurvey.child("Rivers").child("eventPhoto").setValue(eventImage);
-                                                    newSurvey.child("Rivers").child("village").setValue(village + " " + "Village");
+                                                    newSurvey.child("sourceType").setValue("Rivers");
+                                                    newSurvey.child("location").setValue(mLocation);
+                                                    newSurvey.child("eventPhoto").setValue(eventImage);
+                                                    newSurvey.child("village").setValue(village + " " + "Village");
 
                                                     newSurvey.child("date").setValue(stringDate);
                                                     newSurvey.child("UID").setValue(mCurrentUser.getUid());
-                                                    newSurvey.child("filled by").setValue(dataSnapshot.child("username").getValue())
+                                                    newSurvey.child("filledBy").setValue(dataSnapshot.child("Username").getValue())
                                                             .addOnCompleteListener(new OnCompleteListener<Void>() {
                                                                 @Override
                                                                 public void onComplete(@NonNull Task<Void> task) {

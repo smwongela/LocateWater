@@ -10,12 +10,15 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.provider.MediaStore;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.boreholes.locatewater.R;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
@@ -79,16 +82,14 @@ public class RiversFragment extends Fragment {
             //loginIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(loginIntent);
         }
-
-        sourcesRef = FirebaseDatabase.getInstance().getReference().child("Survey");
+        likesRef = FirebaseDatabase.getInstance().getReference().child("Likes");
+        sourcesRef = FirebaseDatabase.getInstance().getReference().child("Rivers");
         return rootView;
     }
 
     @Override
     public void onStart() {
         super.onStart();
-
-
 
 
         FirebaseRecyclerOptions<ServicesModel> options =
@@ -109,49 +110,81 @@ public class RiversFragment extends Fragment {
                         sourcesRef.child(post_key).addValueEventListener(new ValueEventListener() {
                             @Override
                             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                                if (snapshot.hasChild("Rivers")) {
 
 
-                                    final String source_address = snapshot.child("Rivers").child("location").getValue().toString();
-                                    final String source_name = snapshot.child("Rivers").child("videoTitle").getValue().toString();
-                                    final String source_county = snapshot.child("county").getValue().toString();
-                                    final String source_subcounty = snapshot.child("subCounty").getValue().toString();
-                                    final String source_ward = snapshot.child("ward").getValue().toString();
-                                    //final String serviceCost = snapshot.child("Rivers").child("videoCaption").getValue().toString();
+                                final String source_address = snapshot.child("location").getValue().toString();
+                                final String source_name = snapshot.child("videoTitle").getValue().toString();
+                                final String source_county = snapshot.child("county").getValue().toString();
+                                final String source_subcounty = snapshot.child("subCounty").getValue().toString();
+                                final String source_ward = snapshot.child("ward").getValue().toString();
+                                final String videoURL = snapshot.child("videoUrl").getValue().toString();
+                                final String imageUrl = snapshot.child("eventPhoto").getValue().toString();
+                                //String videoUrl = snapshot.getValue(String.class);
+
+                                holder.sourceName.setText(source_name);
+                                holder.sourceCounty.setText(source_county);
+                                holder.sourceSubCounty.setText(source_subcounty);
+                                holder.sourceWard.setText(source_ward);
 
 
+                                final String sourceImage = snapshot.child("eventPhoto").getValue().toString();
+                                Picasso.with(getContext()).load(sourceImage).into(holder.sourceImage);
 
-                                    holder.sourceAddress.setText(source_address);
-                                    holder.sourceName.setText(source_name);
-                                    holder.sourceCounty.setText(source_county);
-                                    holder.sourceSubCounty.setText(source_subcounty);
-                                    holder.sourceWard.setText(source_ward);
+                                holder.setLikeButtonStatus(post_key);
 
-                                    //holder.post_image.setText(projectDate);
+                                holder.likePostButton.setOnClickListener(new View.OnClickListener() {
 
-                                        final String sourceImage = snapshot.child("Rivers").child("eventPhoto").getValue().toString();
-                                        Picasso.with(getContext()).load(sourceImage).into(holder.sourceImage);
-                                    /*
-                                    holder.scheduleButton.setOnClickListener(new View.OnClickListener() {
-                                        @Override
-                                        public void onClick(View v) {
-                                            Intent reportIntent = new Intent(context, ReserveActivity.class);
-                                            reportIntent.putExtra("ServiceID", post_key);
-                                            reportIntent.putExtra("ServiceName",serviceTitle);
-                                            startActivity(reportIntent);
+                                    @Override
+                                    public void onClick(View v) {
+                                        // initialize the like checker to true, we are using this boolean variable to determine if a post has been liked or dislike
+                                        // we declared this variable on to of our activity class
+                                        likeChecker = true;
+                                        //check the currently logged in user using his/her ID
+                                        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+                                        if (user != null) {
+                                            currentUserID = user.getUid();
+                                        } else {
+                                            Toast.makeText(context, R.string.please_login, Toast.LENGTH_SHORT).show();
+
                                         }
-                                    });
-                                    holder.inquireButton.setOnClickListener(new View.OnClickListener() {
-                                        @Override
-                                        public void onClick(View v) {
-                                            String phone = "+254700931415";
-                                            Intent intent = new Intent(Intent.ACTION_DIAL, Uri.fromParts("tel", phone, null));
-                                            startActivity(intent);
-                                        }
-                                    });
-                                    */
+                                        //Listen to changes in the likes database reference
+                                        likesRef.addValueEventListener(new ValueEventListener() {
+                                            @Override
+                                            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                                                if (likeChecker.equals(true)) {
+                                                    // if the current post has a like, associated to the current logged and the user clicks on it again, remove the like
+                                                    //basically the user is disliking
+                                                    if (dataSnapshot.child(post_key).hasChild(currentUserID)) {
+                                                        likesRef.child(post_key).child(currentUserID).removeValue();
+                                                        likeChecker = false;
+                                                    } else {
+                                                        //here the user is liking, set value on the like
+                                                        likesRef.child(post_key).child(currentUserID).setValue(true);
+                                                        likeChecker = false;
+                                                    }
+                                                }
+                                            }
 
-                                }
+                                            @Override
+                                            public void onCancelled(@NonNull DatabaseError error) {
+
+                                            }
+                                        });
+
+                                    }
+                                });
+
+
+                        holder.videoPostButton.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                Intent playVid = new Intent(context,PlayVideoActivity.class);
+                                playVid.putExtra("videoUrl", videoURL);
+                                startActivity(playVid);
+                            }
+                        });
+
+
 
                             }
 
@@ -183,7 +216,16 @@ public class RiversFragment extends Fragment {
         public final TextView sourceSubCounty;
         public final TextView sourceWard;
         public final ImageView sourceImage;
-        public  final TextView sourceAddress;
+        public final ImageButton likePostButton;
+        public final ImageButton videoPostButton;
+        public final TextView displayLikes;
+
+        //Declare an int variable to hold the count  of likes
+        int countLikes;
+        //Declare a string variable to hold  the user ID of currently logged in user
+        String currentUserID;
+
+        final DatabaseReference likesRef;
 
         public ProjectViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -193,19 +235,55 @@ public class RiversFragment extends Fragment {
             sourceCounty = itemView.findViewById(R.id.sourceCounty);
             sourceSubCounty = itemView.findViewById(R.id.sourceSubCounty);
             sourceWard = itemView.findViewById(R.id.sourceWard);
-            sourceAddress=itemView.findViewById(R.id.sourceAddress);
-            sourceImage =itemView.findViewById(R.id.sourceImage);
+
+            sourceImage = itemView.findViewById(R.id.sourceImage);
+
+            likePostButton = itemView.findViewById(R.id.like_button);
+            videoPostButton = itemView.findViewById(R.id.watchVideo);
+            displayLikes = itemView.findViewById(R.id.likes_display);
 
 
+            //Initialize a database reference where you will store  the likes
+            likesRef = FirebaseDatabase.getInstance().getReference().child("Likes");
+        }
+        public void setLikeButtonStatus ( final String post_key){
+            //we want to know who has like a particular post, so let's get the user using their user_ID
+            FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+            if (user != null) {
+                currentUserID = user.getUid();
+            }
+            likesRef.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                    //define post_key in the in the onBindViewHolder method
+                    //check if a particular post has been liked
+                    if (dataSnapshot.child(post_key).hasChild(currentUserID)) {
+                        //if liked get the number of likes
+                        countLikes = (int) dataSnapshot.child(post_key).getChildrenCount();
+                        //check the image from initiali sislike to like
+                        likePostButton.setImageResource(R.drawable.like);
+                        // count the like and display them in the textView for likes
+                        displayLikes.setText(Integer.toString(countLikes));
+                    } else {
+                        //If disliked, get the current number of likes
+                        countLikes = (int) dataSnapshot.child(post_key).getChildrenCount();
+                        // set the image resource as disliked
+                        likePostButton.setImageResource(R.drawable.dislike);
+                        //display the current number of likes
+                        displayLikes.setText(Integer.toString(countLikes));
+                    }
 
+                }
 
+                @Override
+                public void onCancelled(@NonNull DatabaseError databaseError) {
 
+                }
+            });
 
 
         }
 
-
     }
-
 }
 

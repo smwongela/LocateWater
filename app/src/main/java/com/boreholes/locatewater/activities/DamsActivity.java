@@ -83,7 +83,7 @@ public class DamsActivity extends AppCompatActivity implements FetchAddressTask.
     private final static int GALLERY_REQ = 1;
     private StorageReference mStorageRef;
     private FirebaseUser mCurrentUser;
-    private DatabaseReference surveyRef,mDatabaseUsers,countyRef,subCountyRef,wardRef;
+    private DatabaseReference damsRef,mDatabaseUsers,locationRef;
     private ProgressBar progressBar;
     private LinearLayout layoutTotals;
     private RelativeLayout layout;
@@ -122,11 +122,12 @@ public class DamsActivity extends AppCompatActivity implements FetchAddressTask.
         }
         mStorageRef = FirebaseStorage.getInstance().getReference().child("event_images");
 
-        surveyRef = FirebaseDatabase.getInstance().getReference().child("Survey");
+        damsRef = FirebaseDatabase.getInstance().getReference().child("Dams");
+        locationRef =FirebaseDatabase.getInstance().getReference().child("Locations");
 
         mCurrentUser = mAuth.getCurrentUser();
 
-        mDatabaseUsers = FirebaseDatabase.getInstance().getReference().child("users");
+        mDatabaseUsers = FirebaseDatabase.getInstance().getReference().child("Users");
         imageButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -336,6 +337,23 @@ public class DamsActivity extends AppCompatActivity implements FetchAddressTask.
 
 
             if (longitude != null) {
+                final DatabaseReference newLocation= locationRef.push();
+                locationRef.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        newLocation.child("village").setValue(village + " " + "Village");
+                        newLocation.child("type").setValue("Dams");
+                        newLocation.child("Latitude").setValue(latitude);
+                        newLocation.child("Longitude").setValue(longitude);
+                        newLocation.child("sourceTotals").setValue(sources);
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+
 
                 if (event_image_uri != null) {
                     final ProgressDialog progressDialog = new ProgressDialog(this);
@@ -374,7 +392,7 @@ public class DamsActivity extends AppCompatActivity implements FetchAddressTask.
 
                                             final String eventImage = uri.toString();
 
-                                            final DatabaseReference newSurvey= surveyRef.push();
+                                            final DatabaseReference newSurvey= damsRef.push();
 
 
                                             //call the method addValueEventListener to publish the additions in  the database reference of a specific user
@@ -390,9 +408,9 @@ public class DamsActivity extends AppCompatActivity implements FetchAddressTask.
                                                     newSurvey.child("sourcesSalty").setValue(salty);
                                                     newSurvey.child("type").setValue("Dams");
 
-                                                    newSurvey.child("Dams").child("location").setValue(mLocation);
-                                                    newSurvey.child("Dams").child("eventPhoto").setValue(eventImage);
-                                                    newSurvey.child("Dams").child("village").setValue(village + " " + "Village");
+                                                    newSurvey.child("location").setValue(mLocation);
+                                                    newSurvey.child("eventPhoto").setValue(eventImage);
+                                                    newSurvey.child("village").setValue(village + " " + "Village");
 
                                                     newSurvey.child("date").setValue(stringDate);
                                                     newSurvey.child("UID").setValue(mCurrentUser.getUid());
