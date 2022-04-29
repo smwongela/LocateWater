@@ -4,12 +4,16 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.cardview.widget.CardView;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.content.IntentSender;
+import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
@@ -220,7 +224,11 @@ public class MainActivity extends AppCompatActivity  implements NavigationView.O
                 case R.id.goMap:
                     startActivity(new Intent(MainActivity.this, MapActivity.class));
                     break;
+                case R.id.contact:
+                    Intent intent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + "+254721420195"));
+                    startActivity(intent);
 
+                   break;
                 case R.id.viewSources:
                     startActivity(new Intent(MainActivity.this, SourceListActivity.class));
             }
